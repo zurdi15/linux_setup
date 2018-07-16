@@ -1,7 +1,6 @@
 filetype on
 syntax on
 
-set number  "show line number
 set cursorline
 
 set list
@@ -15,6 +14,12 @@ set expandtab
 set shiftwidth=4
 set smarttab
 
+" Show trailing whitespace and spaces before a tab:
+highlight ExtraWhitespace ctermbg=red guibg=red
+" Show tabs that are not at the start of a line:
+:match ExtraWhitespace /[^\t]\zs\t\+/
+" The following pattern will match trailing whitespace, except when typing at the end of a line
+match ExtraWhitespace /\s\+\%#\@<!$/
 set hlsearch    "highlight search items
 set incsearch   "show maches as you search
 
