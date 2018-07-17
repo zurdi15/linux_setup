@@ -1,10 +1,6 @@
 filetype on
 syntax on
 
-set cursorline
-
-set list
-
 set autoindent
 set smartindent
 
