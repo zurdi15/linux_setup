@@ -166,9 +166,10 @@ NO_COLOUR="\[\033[0m\]"
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
-    else
+else
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1="\`${SELECT}\`[\$(date +%H:%M)]$YELLOW[${SSH_FLAG}\w]$NO_COLOUR"
+fi
 
 PS1='\[\e[1;92m\]'
 PS1+='\u'
