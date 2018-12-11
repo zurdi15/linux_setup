@@ -1,3 +1,5 @@
+sudo apt install vim
+sudo apt install screenfetch -y
 sudo cp ./profiles/.bash_aliases ~/ && source ~/.bash_aliases
 sudo cp ./profiles/.bashrc ~/ && source ~/.bashrc
 sudo cp ./profiles/.vimrc ~/
