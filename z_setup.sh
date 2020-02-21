@@ -10,7 +10,6 @@ pm=$1
 
 # Packages
 echo "Installing packages"
-sudo ${pm} update && sudo ${pm} upgrade -y
 sudo ${pm} install curl -y
 sudo ${pm} install vim -y
 sudo ${pm} install zsh -y
@@ -26,3 +25,6 @@ if [ ! -d ~/.fonts ]; then
 fi
 wget -O ~/.fonts/Ubuntu_Mono_Nerd_Font_Complete.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete.ttf
 fc-cache -f -v
+
+# Oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
