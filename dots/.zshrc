@@ -43,7 +43,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/aatancef/.oh-my-zsh"
+export ZSH="/home/${USER}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -151,49 +151,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export GRADLE_OPTS="-Dhttp.proxyHost=proxycorporativo -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxycorporativo -Dhttps.proxyPort=8080 -Djava.nonProxyHosts='localhost|10.*|172.*|AOTLXPRICO00001'"
-
-mkat-cmd() {
-  echo 'mkatdb:{url:"jdbc:mysql://db:13306/mkat?useSSL=false"}' > .mkatrc
-  docker run -it --rm --add-host db:10.113.99.120 -e PATH=/mkat/bin:$PATH -v $PWD:/root -w /root registry:5000/mkat-server:latest "$@"
-  rm -fr .mkatrc
-}
-mkat() {
-  mkat-cmd /mkat/bin/mkat "$@"
-}
-load-dataset-defs() {
-  mkat-cmd ./load-data.sh -d/root/catalog "$@"
-}
-update-mkat() {
-  docker rmi $(docker image ls registry:5000/mkat-server:latest -q) >/dev/null 2>&1; mkat version 2>/dev/null && \
-  echo "Successfully updated to latest version"
-}
-
-pkat() {
-  echo "Process Catalog CLI"
-  echo "  Commands available:"
-  echo "    pkat-validate    "
-  echo "    pkat-add         "
-  echo "    update-pkat      "
-}
-
-pkat-cmd() {
-  docker run -it --rm --add-host api:10.113.99.120 -e PATH=/pkat/bin:$PATH -v $PWD:/root -w /root registry:5000/pkat-cli:latest "$@"
-}
-
-pkat-validate() {
-  pkat-cmd validate --file "$@"
-}
-
-pkat-add() {
-  pkat-cmd process --add "$@"
-}
-
-update-pkat() {
-  docker rmi $(docker image ls registry:5000/pkat-cli:latest -q) >/dev/null 2>&1; pkat-validate .dummy_file 2>/dev/null && \
-  echo "pkat CLI successfully updated to latest version"
-}
-
 export VENVS_PATH=~/venvs
 
 activate_usage() {
@@ -204,33 +161,6 @@ activate() {
   [ ! -d "${VENVS_PATH}/$1" ] && echo -e "Not a valid VIRTUAL_ENV '$1'" && activate_usage && return 2
   source ${VENVS_PATH}/$1/bin/activate
 }
-mirinda() {
-docker run -it --rm -e PATH=/mirinda/bin:$PATH -w /root -v $PWD:/root registry:5000/mirinda:latest mirinda "$@"
-}
-mirinda-new() {
-mirinda_params="$@"
-if [[ $mirinda_params == *"="* ]]; then
-  prod_id=`echo $mirinda_params | cut -d ' ' -f2 | cut -d '=' -f2 | tr '[:lower:]' '[:upper:]'`
-else
-  prod_id=`echo $mirinda_params | cut -d ' ' -f4 | tr '[:lower:]' '[:upper:]'`
-fi
-docker run -it --rm -e PATH=/mirinda/bin:$PATH -w /root -v $PWD:/root registry:5000/mirinda:latest  mirinda new $mirinda_params; if [ -d "GEAOSP_MIR_UC_${prod_id}_WORKFLOWS" ]; then sudo chown -R $(id -u $USER) GEAOSP_MIR_UC_${prod_id}_WORKFLOWS; sudo chgrp -R $(id -g $USER) GEAOSP_MIR_UC_${prod_id}_WORKFLOWS; fi;
-}
-update-mirinda() {
-docker rmi $(docker image ls registry:5000/mirinda:latest -q) >/dev/null 2>&1; mirinda version 2>/dev/null && \
-echo "Successfully updated to latest version"
-}
-# ussh host-alias [user] 
-# i.e. ussh discover 
-# connects to discover, using a local user based bashrc (~/{localuser}/.bashrc) and history 
-ussh() { 
- if [[ ! -z $2 ]]; then 
- THE_USER=$2 
- else 
- THE_USER=$USER 
- fi 
- ssh -t $1 USSH_USER=${THE_USER} THE_USER=${THE_USER} exec zsh 
-}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -239,17 +169,7 @@ ussh() {
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-# Calls the deployer directly
-# Usage:
-#  - $1: project home
-#  - $2: project area
-#  - $3: project product-id
-#  - $4: envinronment where want to be deployed
-function deploy(){
-	activate ansible && bash /home/aatancef/orange/GEAOSP_ANS_WORKFLOW_DEPLOYER/deploy/execute.sh $1 $2 $3 $4 && deactivate
-}
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/aatancef/.sdkman"
-[[ -s "/home/aatancef/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aatancef/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/home/${USER}/.sdkman"
+[[ -s "/home/${USER}/.sdkman/bin/sdkman-init.sh" ]] && source "/home/${USER}/.sdkman/bin/sdkman-init.sh"
 

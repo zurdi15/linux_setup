@@ -27,6 +27,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 echo "Creating aliases and dots files"
 echo -e '
+# Custom z aliases
 alias l="colorls -lA --sd"
 alias ll="colorls -l --tree --sd"
 alias lll="colorls -lA --tree --sd"
