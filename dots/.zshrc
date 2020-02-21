@@ -148,7 +148,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 export VENVS_PATH=~/venvs
@@ -168,8 +168,3 @@ activate() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $(dirname $(gem which colorls))/tab_complete.sh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/${USER}/.sdkman"
-[[ -s "/home/${USER}/.sdkman/bin/sdkman-init.sh" ]] && source "/home/${USER}/.sdkman/bin/sdkman-init.sh"
-
