@@ -15,7 +15,9 @@ sudo ${pm} install vim -y
 sudo ${pm} install zsh -y
 sudo ${pm} install ruby -y
 sudo ${pm} install ruby-dev -y
-sudo ${pm} autoremove
+sudo ${pm} install lolcat -y
+sudo ${pm} install tilix -y
+sudo ${pm} autoremove -y
 sudo gem install colorls
 
 # Fonts
