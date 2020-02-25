@@ -1,4 +1,4 @@
-<h1>Linux setup as Z mode</h1>
+<h1>Terminal setup as Z mode</h1>
 
 This scripts executed together generate all the configuration to turn your terminal the coolest terminal.
 
