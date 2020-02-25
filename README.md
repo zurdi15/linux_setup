@@ -29,3 +29,13 @@ At first, install the following dependencies:
   - Oh-my-zsh
 
 The, execute the z_setup.zsh from zsh shell
+
+<h3>Screenshots [WIP]</h3>
+
+<b>Banner</b>
+
+<b>Prompt</b>
+![]()
+
+<b>Vim</b>
+![]()
