@@ -31,9 +31,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Disable default status bar
 set noshowmode
 
-" Enable syntax-color
-syntax enable
-
 """ Color scheme
 ""  Monokai
 "colorscheme monokai
