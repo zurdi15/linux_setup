@@ -3,7 +3,8 @@
 This scripts executed together generate all the configuration to turn your terminal the coolest terminal.
 
 The z_setup.sh script only works with package managers wich can install packages like this:
-  <b> ${package_manager} install ${package}</b>
+
+  <code><b> ${package_manager} install ${package}</b></code>
 
 You can install the requeriments list manually and then execute the .zsh script from zsh shell.
 
