@@ -11,8 +11,7 @@ You can install the requeriments list manually and then execute the .zsh script 
 <h3>Basic installation:</h3>
 
   - Execute first z_setup.sh with your package manager as first parameter. Example: <b>bash z_setup.sh apt</b>
-  - After zsh shell prompts, execute z_setup.zsh
-  - Then open vim, and execute the following command: <code>:PlugInstall</code>
+  - After zsh shell prompts, execute z_setup.zsh.
 
 <h3>Manual installation:</h3>
 
@@ -29,7 +28,7 @@ At first, install the following dependencies:
   - Ubuntu Mono Nerd Fonr Complete.ttf
   - Oh-my-zsh
 
-The, execute the z_setup.zsh from zsh shell
+Then, execute the z_setup.zsh from zsh shell.
 
 <h3>Screenshots [WIP]</h3>
 
