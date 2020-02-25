@@ -2,8 +2,17 @@
 
 # $1 - Package manager
 
+function show_help {
+	echo "Linux Setup as Z mode v1.0 - Zurdi Zurdo"
+	echo "Released under the GNU GLP"
+	echo ""
+	echo "Usage: ./z_setup.sh [package manager]"
+}
+
 if [ -z $1 ]; then
 	echo "Package manager needed"
+	echo ""
+	show_help
 	exit 1
 fi
 pm=$1
