@@ -39,14 +39,11 @@ syntax enable
 "colorscheme monokai
 
 ""  Gruvbox
-"colorscheme gruvbox
-"set background=dark
+colorscheme gruvbox
+set background=dark
 
 "" Onedark
 "colorscheme onedark
 
 "" Delek
-colorscheme delek
-
-" Set NERDTree to actual file path
-autocmd BufEnter * silent! lcd %:p:h
+"colorscheme delek
