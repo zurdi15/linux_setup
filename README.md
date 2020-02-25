@@ -12,6 +12,7 @@ You can install the requeriments list manually and then execute the .zsh script 
 
   - Execute first z_setup.sh with your package manager as first parameter. Example: <b>bash z_setup.sh apt</b>
   - After zsh shell prompts, execute z_setup.zsh
+  - Then open vim, and execute the following command: <code>:PlugInstall</code>
 
 <h3>Manual installation:</h3>
 

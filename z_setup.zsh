@@ -33,9 +33,9 @@ DOTS_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/dots
 cp ${DOTS_PATH}/.p10k.zsh ~
 cp ${DOTS_PATH}/.zshrc ~
 cp ${DOTS_PATH}/.vimrc ~
-if [ ! -d ~/.vim ]; then
-	mkdir ~/.vim
-fi
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cp ${DOTS_PATH}/plugins.vim ~/.vim
 
 source ~/.zshrc
