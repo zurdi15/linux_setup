@@ -26,6 +26,7 @@ sudo ${pm} install ruby -y
 sudo ${pm} install ruby-dev -y
 sudo ${pm} install lolcat -y
 sudo ${pm} install tilix -y
+sudo ${pm} install build-essential -y
 sudo ${pm} autoremove -y
 sudo gem install colorls
 

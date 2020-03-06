@@ -30,6 +30,24 @@ alias shut="shutdown now"' >> ~/.bash_aliases
 
 DOTS_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/dots
 
+mkdir ~/.pre_zsetup_backup
+
+if [ -f ~/.p10k.zsh ]; then
+	cp ~/.p10k.zsh ~/.pre_zsetup_backup
+fi
+if [ -f ~/.zshrc ]; then
+	cp ~/.zshrc ~/.pre_zsetup_backup
+fi
+if [ -f ~/.vimrc ]; then
+	cp ~/.vimrc ~/.pre_zsetup_backup
+fi
+if [ -f ~/.vim/plugins.vim ]; then
+	if [ ! -d ~/.pre_zsetup_backup/.vim ]; then
+		mkdir ~/.pre_zsetup_backup/.vim
+	fi
+	cp ~/.vim/plugins.vim ~/.pre_zsetup_backup/.vim
+fi
+
 cp ${DOTS_PATH}/.p10k.zsh ~
 cp ${DOTS_PATH}/.zshrc ~
 cp ${DOTS_PATH}/.vimrc ~
