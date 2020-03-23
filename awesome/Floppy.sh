@@ -1,4 +1,4 @@
-[cambiar origenes de software]
+#[cambiar origenes de software]
 
 sudo apt build-dep awesome
 
@@ -12,7 +12,7 @@ make package
 
 sudo apt install ./build/awesome-4.3.0.0~git809-g5d1394b9-Linux.deb
 
-
+cd ..
 
 git clone --recursive https://github.com/DaveDavenport/rofi
 
@@ -26,7 +26,7 @@ ninja -C build
 
 sudo ninja -C build install
 
-
+cd ..
 
 git clone https://github.com/tryone144/compton.git
 
@@ -46,16 +46,14 @@ ninja -C build
 
 ninja -C build install
 
-
+cd ..
 
 git clone https://github.com/Bearbobs/glorious-awesome-debian.git
 
 cd glorious-awesome-debian
 
-[Copy awesome folder to .config]
+cp -r awesome ~/.config
 
-[login to awesome desktop environment and enjoy!]
+#[login to awesome desktop environment and enjoy!]
 
-
-
-[rest: https://github.com/manilarome/the-glorious-dotfiles]
+#[rest: https://github.com/manilarome/the-glorious-dotfiles]
