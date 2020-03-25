@@ -109,7 +109,7 @@ ruled.client.connect_signal("request::rules", function()
 		id         = "terminals",
 		rule_any   = { 
 			class = {
-				"tilix",
+				"Tilix",
 				"URxvt",
 				"XTerm",
 				"UXTerm",
@@ -124,6 +124,7 @@ ruled.client.connect_signal("request::rules", function()
 		properties = {
 			tag = '1',
 			switchtotag = true,
+			skip_decoration = true
 		}
 	}
 
@@ -132,13 +133,14 @@ ruled.client.connect_signal("request::rules", function()
 		id         = "web_browsers",
 		rule_any   = { 
 			class = {
-				"firefox",
+				"Firefox",
 				"Tor Browser"
 			}
 		},
 		properties = { 
 			tag = '2',
 			switchtotag = true,
+			skip_decoration = true
 		}
 	}
 
@@ -169,7 +171,7 @@ ruled.client.connect_signal("request::rules", function()
 				"Geany",
 				"Atom",
 				"Subl3",
-				"subl",
+				"Sublime_text",
 				"code-oss"
 			},
 			name  = {
@@ -179,7 +181,8 @@ ruled.client.connect_signal("request::rules", function()
 		},
 		properties = { 
 			tag = '4',
-			switchtotag = true
+			switchtotag = true,
+			skip_decoration = true
 		}
 	}
 
@@ -194,7 +197,8 @@ ruled.client.connect_signal("request::rules", function()
 		},
 		properties = { 
 			tag = '5',
-			switchtotag = true
+			switchtotag = true,
+			skip_decoration = true
 		}
 	}
 
