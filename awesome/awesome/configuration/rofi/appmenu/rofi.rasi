@@ -1,102 +1,130 @@
-/**
- * User: qball
- * Copyright: Dave Davenport
- */
-* {
-    text-color:  #ffeedd;
-    background-color:  rgba(0,0,0,0);
-    dark: #1c1c1c;
-    // Black
-    black:       #3d352a;
-    lightblack:  #554444;
-    //
-    // Red
-    red:         #cd5c5c;
-    lightred:    #cc5533;
-    //
-    // Green
-    green:       #86af80;
-    lightgreen:  #88cc22;
-    //
-    // Yellow
-    yellow:      #e8ae5b;
-    lightyellow:     #ffa75d;
-    //
-    // Blue
-    blue:      #6495ed;
-    lightblue:     #87ceeb;
-    //
-    // Magenta
-    magenta:      #deb887;
-    lightmagenta:     #996600;
-    //
-    // Cyan
-    cyan:      #b0c4de;
-    lightcyan:     #b0c4de;
-    //
-    // White
-    white:      #bbaa99;
-    lightwhite:     #ddccbb;
-    //
-    // Bold, Italic, Underline
-    highlight:     bold #ffffff;
-}
-#window {
-    height:   100%;
-    width: 30em;
-    location: west;
-    anchor:   west;
-    border:  0px 2px 0px 0px;
-    text-color: @lightwhite;
+configuration {
+    font:                           "SF Pro Text Regular 9";
+    show-icons:                     true;
+    drun-display-format:            "{name}";
+    fullscreen:                     false;
+    threads:                        0;
+    scroll-method:                  0;
+    disable-history:                false;
+    monitor:                        "primary";
 }
 
-#mode-switcher {
-    border: 2px 0px 0px 0px;
-    background-color: @lightblack;
-    padding: 4px;
+* {
+    background:                     #00000000;
+    background-color:               #00000066;
+    background-entry:               #00000033;
+    background-alt:                 #f2f2f215;
+    foreground:                     #f2f2f2EE;
+    foreground-selected:            #ffffffFF;
+    urgent:                         #E91E6366;
+    urgent-selected:                #E91E6377;
 }
-#button selected {
-    border-color: @lightgreen;
-    text-color: @lightgreen;
+
+window {
+    transparency:                   "real";
+    background-color:               @background;
+    text-color:                     @foreground;
+    height:                         1080px;
+    width:                          1920px;
+    location:                       northwest;
+    anchor:                         northwest;
+    x-offset:                       45;
+    y-offset:                       28;
 }
-#inputbar {
-    background-color: @lightblack;
-    text-color: @lightgreen;
-    padding: 4px;
-    border: 0px 0px 2px 0px;
+
+prompt {
+    enabled: false;
 }
-#mainbox {
-    expand: true;
-    background-color: #1c1c1cee;
-    spacing: 1em;
+
+
+inputbar {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    expand:                         false;
+    border-radius:                  6px;
+    margin:                         0px 405px 0px 405px;
+    padding:                        10px 10px 10px 10px;
+    position:                       north;
 }
-#listview {
-    padding: 0em 0.4em 0em 1em;
-    dynamic: false;
-    lines: 0;
+
+
+entry {
+    background-color:               @background;
+    text-color:                     @foreground;
+    placeholder-color:              @foreground;
+    expand:                         true;
+    horizontal-align:               0.5;
+    placeholder:                    "Search applications";
+    blink:                          true;
 }
-#element selected  normal {
-    background-color: @blue;
+
+case-indicator {
+    background-color:               @background;
+    text-color:                     @foreground;
+    spacing:                        0;
 }
-#element normal active {
-    text-color: @lightblue;
+
+
+listview {
+    background-color:               @background;
+    columns:                        7;
+    spacing:                        4px;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
 }
-#element normal urgent {
-    text-color: @lightred;
+
+mainbox {
+    background-color:               @background-color;
+    children:                       [ inputbar, listview ];
+    spacing:                        25px;
+    padding:                        45px 135px 45px 135px;
 }
-#element alternate normal {
+
+element {
+    background-color:               @background;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  9px;
+    padding:                        25px 0px 25px 0px;
 }
-#element alternate active {
-    text-color: @lightblue;
+
+element-icon {
+    size:                           64px;
+    border:                         0px;
 }
-#element alternate urgent {
-    text-color: @lightred;
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         5px 10px 0px 10px;
 }
-#element selected active {
-    background-color: @lightblue;
-    text-color: @dark;
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+    border-radius:                  9px;
 }
-#element selected urgent {
-    background-color: @lightred;
-    text-color: @dark;
+
+element normal.active,
+element alternate.active {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+}
+
+element selected {
+    background-color:               @background-alt;
+    text-color:                     @foreground-selected;
+}
+
+element selected.urgent {
+    background-color:               @urgent-selected;
+    text-color:                     @foreground;
+}
+
+element selected.active {
+    background-color:               @background-alt;
+    color:                          @foreground-selected;
 }

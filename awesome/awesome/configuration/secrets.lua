@@ -33,8 +33,8 @@ return {
 
 	email  = {
 
-		address       = '',
-		app_password  = '',
+		address       = 'zurdizurdo25@gmail.com',
+		app_password  = 'hmlnixkqybhfkiex',
 		imap_server   = 'imap.gmail.com',
 		port          = '993'
 
@@ -42,8 +42,8 @@ return {
 
 	weather = {
 
-		key           = '',
-		city_id       = '',
+		key           = '27e7e1d98bc3131a1680b5f9b998176d',
+		city_id       = 3117732,
 		units         = 'metric'
 
 	},

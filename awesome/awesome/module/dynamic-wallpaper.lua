@@ -34,14 +34,10 @@ local wall_dir = filesystem.get_configuration_dir() .. 'theme/wallpapers/'
 -- Wallpapers filename
 -- Note:
 -- Default image format is jpg
---wallpaper_morning = 'morning-wallpaper.jpg'
---wallpaper_noon = 'noon-wallpaper.jpg'
---wallpaper_night = 'night-wallpaper.jpg'
---wallpaper_midnight = 'midnight-wallpaper.jpg'
-wallpaper_morning = 'reindeer-digital-art-4k-lf.jpg'
-wallpaper_noon = 'reindeer-digital-art-4k-lf.jpg'
-wallpaper_night = 'reindeer-digital-art-4k-lf.jpg'
-wallpaper_midnight = 'reindeer-digital-art-4k-lf.jpg'
+wallpaper_morning = 'morning-wallpaper.jpg'
+wallpaper_noon = 'noon-wallpaper.jpg'
+wallpaper_night = 'night-wallpaper.jpg'
+wallpaper_midnight = 'midnight-wallpaper.jpg'
 
 
 -- Change the wallpaper on scheduled time

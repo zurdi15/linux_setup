@@ -8,24 +8,18 @@ local tags = {
 	{
 		icon = icons.terminal,
 		type = 'terminal',
-		defaultApp = 'tilix',
+		defaultApp = 'konsole',
 		screen = 1
 	},
 	{
-		icon = icons.web_browser,
-		type = 'web_browser',
-		defaultApp = 'firefox',
-		screen = 1
-	},
-	{
-		icon = icons.idea,
-		type = 'code',
-		defaultApp = 'idea',
+		icon = icons.chrome,
+		type = 'chrome',
+		defaultApp = 'google-chrome-stable',
 		screen = 1
 	},
 	{
 		icon = icons.text_editor,
-		type = 'text_editor',
+		type = 'code',
 		defaultApp = 'subl',
 		screen = 1
 	},
@@ -35,18 +29,12 @@ local tags = {
 		defaultApp = 'nemo',
 		screen = 1
 	},
-	{	
+	{
 		icon = icons.sandbox,
 		type = 'any',
-		defaultApp = 'any',
+		defaultApp = '',
 		screen = 1
 	}
-	-- {
-	--   icon = icons.social,
-	--   type = 'social',
-	--   defaultApp = 'discord',
-	--   screen = 1
-	-- }
 }
 
 

@@ -6,13 +6,13 @@ return {
 
 	-- Action Bar
 	web_browser 		= dir .. 'tag-list/' .. 'web-browser.svg',
-	text_editor			= dir .. 'tag-list/' .. 'text-editor.svg',
+	chrome 				= dir .. 'tag-list/' .. 'chrome.png',
+	text_editor			= dir .. 'tag-list/' .. 'sublime-text.png',
 	social				= dir .. 'tag-list/' .. 'social.svg',
 	file_manager 		= dir .. 'tag-list/' .. 'file-manager.svg',
 	multimedia 			= dir .. 'tag-list/' .. 'multimedia.svg',
 	games 				= dir .. 'tag-list/' .. 'games.svg',
 	development 		= dir .. 'tag-list/' .. 'development.svg',
-	idea 		= dir .. 'tag-list/' .. 'idea.svg',
 	sandbox 			= dir .. 'tag-list/' .. 'sandbox.svg',
 	terminal 			= dir .. 'tag-list/' .. 'terminal.svg',
 	graphics 			= dir .. 'tag-list/' .. 'graphics.svg',

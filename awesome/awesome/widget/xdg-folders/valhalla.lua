@@ -9,25 +9,25 @@ local dpi = require('beautiful').xresources.apply_dpi
 local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. 'widget/xdg-folders/icons/'
 
-local dl_widget = wibox.widget {
+local docu_widget =	wibox.widget {
 	{
-		image = widget_icon_dir .. 'folder-documents' .. '.svg',
+		image = widget_icon_dir .. 'folder-valhalla' .. '.svg',
 		resize = true,
 		widget = wibox.widget.imagebox
 	},
 	layout = wibox.layout.align.horizontal
 }
 
-local downloads_button = wibox.widget {
+local docu_button = wibox.widget {
 	{
-		dl_widget,
+		docu_widget,
 		margins = dpi(10),
 		widget = wibox.container.margin
 	},
 	widget = clickable_container
 }
 
-downloads_button:buttons(
+docu_button:buttons(
 	gears.table.join(
 		awful.button(
 			{},
@@ -45,7 +45,7 @@ downloads_button:buttons(
 
 awful.tooltip(
 	{
-		objects = {downloads_button},
+		objects = {docu_button},
 		mode = 'outside',
 		align = 'right',
 		text = 'valhalla',
@@ -55,5 +55,4 @@ awful.tooltip(
 	}
 )
 
-
-return downloads_button
+return docu_button

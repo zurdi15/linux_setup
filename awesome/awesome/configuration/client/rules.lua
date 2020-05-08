@@ -11,11 +11,11 @@ local client_buttons = require('configuration.client.buttons')
 ruled.client.connect_signal("request::rules", function()
 	-- All clients will match this rule.
 	ruled.client.append_rule {
-		id         = "global",
-		rule       = { },
+		id = "global",
+		rule = { },
 		properties = {
-			focus     = awful.client.focus.filter,
-			raise     = true,
+			focus = awful.client.focus.filter,
+			raise = true,
 			floating = false,
 			maximized = false,
 			above = false,
@@ -27,15 +27,15 @@ ruled.client.connect_signal("request::rules", function()
 			round_corners = true,
 			keys = client_keys,
 			buttons = client_buttons,
-			screen    = awful.screen.preferred,
+			screen = awful.screen.preferred,
 			placement = awful.placement.no_overlap+awful.placement.no_offscreen
 		}
 	}
 
 	-- Dialogs
 	ruled.client.append_rule {
-		id         = "dialog",
-		rule_any   = { 
+		id = "dialog",
+		rule_any = { 
 			type = { "dialog" },
 			class = { "Wicd-client.py", "calendar.google.com" },
 		},
@@ -53,8 +53,8 @@ ruled.client.connect_signal("request::rules", function()
 
 	-- Modals
 	ruled.client.append_rule {
-		id         = "dialog",
-		rule_any   = { 
+		id = "dialog",
+		rule_any = { 
 			type = { "modal" },
 		},
 		properties = { 
@@ -71,8 +71,8 @@ ruled.client.connect_signal("request::rules", function()
 
 	-- Utilities
 	ruled.client.append_rule {
-		id         = "utility",
-		rule_any   = { 
+		id = "utility",
+		rule_any = { 
 			type = { "utility", "splash" }
 		},
 		properties = { 
@@ -87,8 +87,8 @@ ruled.client.connect_signal("request::rules", function()
 
 	-- Splash
 	ruled.client.append_rule {
-		id         = "splash",
-		rule_any   = { 
+		id = "splash",
+		rule_any = { 
 			type = { "splash" }
 		},
 		properties = { 
@@ -104,22 +104,13 @@ ruled.client.connect_signal("request::rules", function()
 		}
 	}
 
-	-- terminal emulators
+	-- Terminal emulators
 	ruled.client.append_rule {
-		id         = "terminals",
-		rule_any   = { 
-			class = {
-				"Tilix",
-				"URxvt",
-				"XTerm",
-				"UXTerm",
-				"kitty",
-				"K3rmit"
+		id = "terminals",
+		rule_any = { 
+			class = { 
+				"konsole"
 			},
-		},
-		except_any = {
-			-- Exclude the QuakeTerminal
-			instance = { "QuakeTerminal" }
 		},
 		properties = {
 			tag = '1',
@@ -130,11 +121,11 @@ ruled.client.connect_signal("request::rules", function()
 
 	-- Browsers
 	ruled.client.append_rule {
-		id         = "web_browsers",
-		rule_any   = { 
+		id = "web_browsers",
+		rule_any = { 
 			class = {
-				"Firefox",
-				"Tor Browser"
+				"chrome",
+				"firefox",
 			}
 		},
 		properties = { 
@@ -144,16 +135,12 @@ ruled.client.connect_signal("request::rules", function()
 		}
 	}
 
-	-- IDEs and Tools
+	-- Text editors
 	ruled.client.append_rule {
-		id         = "ide",
-		rule_any   = {  
+		id = "text_editors",
+		rule_any = { 
 			class = {
-				"Oomox",
-				"Unity",
-				"UnityHub",
-				"jetbrains-studio",
-				"idea"
+				"Sublime_text",
 			}
 		},
 		properties = { 
@@ -163,20 +150,12 @@ ruled.client.connect_signal("request::rules", function()
 		}
 	}
 
-	-- text editors
+	-- File managers
 	ruled.client.append_rule {
-		id         = "text_editors",
-		rule_any   = {  
+		id = "file_managers",
+		rule_any = { 
 			class = {
-				"Geany",
-				"Atom",
-				"Subl3",
-				"Sublime_text",
-				"code-oss"
-			},
-			name  = {
-				"LibreOffice",
-				"libreoffice"
+				"Nemo",
 			}
 		},
 		properties = { 
@@ -186,13 +165,11 @@ ruled.client.connect_signal("request::rules", function()
 		}
 	}
 
-	-- File managers
+	-- Any other
 	ruled.client.append_rule {
-		id         = "file_managers",
-		rule_any   = {  
+		id = "any",
+		rule_any = { 
 			class = {
-				"Nemo",
-				"File-roller"
 			}
 		},
 		properties = { 
@@ -202,12 +179,11 @@ ruled.client.connect_signal("request::rules", function()
 		}
 	}
 
-
 	-- Hide titlebars
 	ruled.client.append_rule {
-		id        = "hide_titlebars",
-		rule_any  = {
-			class    = {
+		id = "hide_titlebars",
+		rule_any = {
+			class = {
 				"feh",
 				"Mugshot",
 				"Pulseeffects"
@@ -224,9 +200,9 @@ ruled.client.connect_signal("request::rules", function()
 
 	-- Instances
 	ruled.client.append_rule {
-		id       = "instances",
+		id = "instances",
 		rule_any = {
-			instance    = {
+			instance = {
 				"file_progress",
 				"Popup",
 				"nm-connection-editor"
@@ -248,9 +224,9 @@ ruled.client.connect_signal("request::rules", function()
 	
 	-- Fullsreen
 	ruled.client.append_rule {
-		id       = "fullscreen",
+		id = "fullscreen",
 		rule_any = {
-			class    = {
+			class = {
 				"SuperTuxKart"
 			},
 		},

@@ -10,27 +10,26 @@
 local gears = require('gears')
 local awful = require('awful')
 local beautiful = require('beautiful')
+local freedesktop = require("freedesktop")
 
 require('awful.autofocus')
 
 --  ========================================
--- 			       Theme
---	     	Load the Aesthetics
+--  Theme
+--  Load the Aesthetics
 --  ========================================
 beautiful.init(require('theme'))
 
 --  ========================================
--- 			  	  Layouts
---	     	   Load the Panels
+--  Layouts
+--  Load the Panels
 --  ========================================
-
 require('layout')
 
 --  ========================================
--- 			      Modules
---	        Load all the modules
+--  Modules
+--  Load all the modules
 --  ========================================
-
 require('module.notifications')
 require('module.auto-start')
 require('module.decorate-client')
@@ -46,20 +45,17 @@ require('module.battery-notifier')
 require('module.lockscreen')
 
 --  ========================================
--- 				Configuration
---	     	Load your prefrences
+--  Configuration
+--  Load your prefrences
 --  ========================================
-
 require('configuration.client')
 require('configuration.tags')
 root.keys(require('configuration.keys.global'))
 
-
 --  ========================================
--- 					Signals
---	     Signals Listeners and Senders
+--  Signals
+--  Signals Listeners and Senders
 --  ========================================
-
 screen.connect_signal("request::wallpaper", function(s)
 
 	-- If wallpaper is a function, call it with the screen

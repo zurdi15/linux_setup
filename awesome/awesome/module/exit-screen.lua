@@ -13,7 +13,7 @@ local clickable_container = require('widget.clickable-container')
 local icon_size = beautiful.exit_screen_icon_size or dpi(90)
 
 local user_name = wibox.widget {
-	markup = 'Choose wisely, $USER!',
+	--markup = 'Choose wisely, $USER!',
 	font = 'SF Pro Text UltraLight 48',
 	align = 'center',
 	valign = 'center',

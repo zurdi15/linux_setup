@@ -16,10 +16,8 @@ return wibox.widget {
   	{
 		separator,
 		require("widget.xdg-folders.home"),
-		require("widget.xdg-folders.orange"),
 		require("widget.xdg-folders.valhalla"),
-		require("widget.xdg-folders.descargas"),
-		require("widget.xdg-folders.tmp"),
+		require("widget.xdg-folders.downloads"),
 		separator,
 		require("widget.xdg-folders.trash"),
 		layout = wibox.layout.fixed.vertical,

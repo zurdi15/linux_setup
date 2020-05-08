@@ -264,14 +264,6 @@ local globalKeys = awful.util.table.join(
     ),
     awful.key(
         {modkey, "Shift"}, 
-        'i',
-        function()
-            awful.spawn(apps.default.code)
-        end,
-        {description = "open default IDE", group = 'launcher'}
-    ),
-    awful.key(
-        {modkey, "Shift"}, 
         't',
         function()
             awful.spawn(apps.default.text_editor)

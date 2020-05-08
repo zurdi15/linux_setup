@@ -50,7 +50,7 @@ local clientKeys =
 		{description = 'focus previous by index', group = 'client'}
 	),
 	awful.key(
-		{ modkey, "Shift"  },
+		{ modkey, "Shift" },
 		"d",
 		function ()
 			awful.client.swap.byidx(1)
@@ -84,19 +84,19 @@ local clientKeys =
 		{description = 'go back', group = 'client'}
 	),
 
-    awful.key(
-        {modkey, 'Control'},
-        'n',
-        function()
-            local c = awful.client.restore()
-            -- Focus restored client
-            if c then
-                client.focus = c
-                c:raise()
-            end
-        end,
-        {description = 'restore minimized', group = 'client'}
-    ),
+  awful.key(
+    {modkey, 'Control'},
+    'n',
+    function()
+      local c = awful.client.restore()
+      -- Focus restored client
+      if c then
+        client.focus = c
+        c:raise()
+      end
+    end,
+    {description = 'restore minimized', group = 'client'}
+  ),
 
 	-- move floating client to center
 	awful.key(
