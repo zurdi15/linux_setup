@@ -49,6 +49,7 @@ if [ -f ~/.vim/plugins.vim ]; then
 fi
 
 cp ${DOTS_PATH}/.p10k.zsh ~
+cp ${DOTS_PATH}/.gtk.css ~/.config/gtk-3.0
 cp ${DOTS_PATH}/.zshrc ~
 cp ${DOTS_PATH}/.vimrc ~
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
