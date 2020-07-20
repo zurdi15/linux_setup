@@ -49,6 +49,8 @@ if [ -f ~/.vim/plugins.vim ]; then
 fi
 
 cp ${DOTS_PATH}/.p10k.zsh ~
+if [ ! -d ~/.config/gtk-3.0 ]; then
+	mkdir ~/.config/gtk-3.0
 cp ${DOTS_PATH}/.gtk.css ~/.config/gtk-3.0
 cp ${DOTS_PATH}/.zshrc ~
 cp ${DOTS_PATH}/.vimrc ~
