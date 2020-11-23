@@ -15,7 +15,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Dots
-if [ -f ~/.bash_aliases ]; then
+if [ ! -f ~/.bash_aliases ]; then
 	touch ~/.bash_aliases
 fi
 
