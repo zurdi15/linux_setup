@@ -214,7 +214,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+q exec "rofi -modi 'Powermenu: /home/zurdi/.config/rofi/scripts/rofi-powermenu.sh' -show Powermenu -theme /home/zurdi/.config/rofi/powermenu.rasi"
+bindsym $mod+Shift+q exec "rofi -modi 'Powermenu: ~/.config/rofi/scripts/rofi-powermenu.sh' -show Powermenu -theme ~/.config/rofi/powermenu.rasi"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -243,18 +243,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Playing youtube videos in from anywhere else by just copying the link
-bindsym $mod+y exec "bash /home/saurav/.config/mpv/scripts/yt.sh"
-
 # Wallpaper
-exec_always feh --bg-fill /home/zurdi/.config/walpaper/wallhaven_bg.jpg
-
-# i3Lock key-map
-bindsym $mod+x exec betterlockscreen -u /home/zurdi/.config/wallpaper/wallhaven_bg.jpg -l blur
-
-# Compositor
-# exec_always picom -f
-exec_always --no-startup-id pkill picom; picom --no-use-damage
+exec feh --bg-fill ~/.config/walpaper/wallhaven_bg.jpg
 
 #Theme
 set $bgcolor #2e3440

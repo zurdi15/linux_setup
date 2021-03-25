@@ -19,7 +19,6 @@ pm=$1
 
 # PPA for i3-gaps
 sudo add-apt-repository -y ppa:regolith-linux/stable
-sudo add-apt-repository -y ppa:papirus/papirus
 sudo apt update
 
 # Packages
@@ -31,7 +30,6 @@ sudo ${pm} install polybar -y
 sudo ${pm} install i3-gaps -y
 sudo ${pm} install firefox -y
 sudo ${pm} install rofi -y
-sudo ${pm} install papirus-icon-theme -y
 sudo ${pm} install nautilus -y
 sudo ${pm} install feh -y
 sudo ${pm} install tilix -y
@@ -43,15 +41,6 @@ sudo ${pm} autoremove -y
 sudo gem install colorls
 echo "Installing packages: Done!"
 
-# Fonts
-echo "Installing fonts"
-if [ ! -d ~/.fonts ]; then
-	mkdir ~/.fonts
-fi
-cp dots/neodots/.fonts/JetBrains\ Mono\ Regular\ Nerd\ Font\ Complete.ttf ~/.fonts/
-fc-cache -f -v
-echo "Installing fonts: Done!"
-
 # SDKMAN
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -61,10 +50,6 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 #sudo dpkg -i ulauncher_5.8.0_all.deb
 #rm ulauncher_5.8.0_all.deb
 #git clone https://github.com/KiranWells/ulauncher-nord/ ~/.config/ulauncher/user-themes/nord
-
-echo "Loading Tilix config"
-dconf load /com/gexperts/Terminix/ < dots/neodots/.config/tilix/terminix.dconf
-echo "Loading Tilix config: Done!"
 
 echo "When oh my zsh is installed, zsh prompt will appear -> just type exit and the instalation will cotinue :)"
 read -p "Press any key when you are ready... " key
@@ -124,5 +109,20 @@ echo "Copying dotfiles to ~/.config"
 cp -a dots/neodots/. $HOME
 echo "Copying dotfiles to ~/.config: Done!"
 
+# Fonts
+echo "Installing fonts"
+if [ ! -d ~/.fonts ]; then
+	mkdir ~/.fonts
+fi
+fc-cache -f -v
+echo "Installing fonts: Done!"
+
+echo "Installing nvim plugins"
+nvim +slient +VimEnter +PlugInstall +qall
+echo "Installing nvim plugins: done!"
+
 echo "Aditionally, you can use the Nord theme into any intellij-family IDE and set any wallpaper from ~/.config/wallpaper as background"
+
+echo "Select the nord theme in tilix and disable any kind of border in appearance: Window style -> borderless and Terminal title style -> None."
+echo "Set the Jetbrains Nerd Font 10 on tilix"
 echo "Done!"

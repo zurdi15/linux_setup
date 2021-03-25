@@ -58,7 +58,7 @@ font-2 = "JetBrainsMono Nerd Font:size=13;3"
 font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
 modules-left = menu-places i3
 modules-center = xwindow
-modules-right = cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio sep date sep power
+modules-right = cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio sep date
 wm-restack = i3
 override-redirect = true
 scroll-up = i3wm-wsnext
@@ -367,7 +367,7 @@ type = custom/text
 format-spacing = 2
 content = %{T2}%{T-}
 content-foreground = ${colors.snow_storm_3}
-click-left = "rofi -modi 'Powermenu: /home/zurdi/.config/rofi/scripts/rofi-powermenu.sh' -show Powermenu -theme /home/zurdi/.config/rofi/powermenu.rasi"
+click-left = "rofi -modi 'Powermenu: ~/.config/rofi/scripts/rofi-powermenu.sh' -show Powermenu -theme ~/.config/rofi/powermenu.rasi"
 
 [module/powermenu]
 type = custom/menu

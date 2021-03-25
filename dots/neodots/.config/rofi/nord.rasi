@@ -1,8 +1,8 @@
 configuration {
-	display-drun:    " Apps";
+	display-drun:    " Apps";
 	display-run:     " Packages";
 	display-window:  "缾 Windows";
-	display-ssh:	 " Ssh";
+	display-ssh:	   " Ssh";
 	sidebar-mode:    true;
 	show-icons:true;
 	font: "JetBrainsMono Nerd Font 10";
