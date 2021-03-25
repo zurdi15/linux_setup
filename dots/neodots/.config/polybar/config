@@ -56,7 +56,7 @@ font-0 = "JetBrainsMono Nerd Font:size=9;2"
 font-1 = "JetBrainsMono Nerd Font:size=11;3"
 font-2 = "JetBrainsMono Nerd Font:size=13;3"
 font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
-modules-left = i3
+modules-left = menu-places i3
 modules-center = xwindow
 modules-right = cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio sep date sep power
 wm-restack = i3
@@ -142,6 +142,24 @@ label-urgent-background = ${colors.aurora_1}
 label-urgent-padding = 2
 ; Separator in between workspaces
 ;label-separator = |
+
+[module/menu-places]
+type = custom/menu
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+; Commands will be executed using "/bin/sh -c $COMMAND"
+label-open = %{T2}   %{T-}
+label-close = %{T2}ﱮ%{T-}
+menu-0-0 = "%{T2}%{T-} Root"
+menu-0-0-exec = "nautilus / &"
+menu-0-1 = "%{T2}%{T-} Home"
+menu-0-1-exec = "nautilus $HOME &"
+; Optional item separator
+; Default: none
+label-separator = " | "
 
 [module/mpd]
 type = internal/mpd
