@@ -46,8 +46,7 @@ echo "Installing fonts"
 if [ ! -d ~/.fonts ]; then
 	mkdir ~/.fonts
 fi
-#wget -O ~/.fonts/Ubuntu_Mono_Nerd_Font_Complete.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete.ttf
-#wget -O ~/.fonts/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+wget -O "~/.fonts/JetBrains Mono Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/JetBrainsMono/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf 
 fc-cache -f -v
 
 # SDKMAN
