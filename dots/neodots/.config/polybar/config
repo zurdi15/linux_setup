@@ -28,7 +28,7 @@ primary = #5E81AC
 secondary = #e60053
 alert = #bd2c40
 
-[bar/zurdibar]
+[bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 95%:
 height = 23
@@ -36,7 +36,7 @@ offset-x = 2.5%
 ;offset-x = 1%
 ;offset-y = 1%
 offset-y = 0.5%
-radius = 10.0
+radius = 0.0
 fixed-center = true
 
 background = ${colors.background}
@@ -82,16 +82,16 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-;cursor-scroll = ns-resize
+cursor-scroll = ns-resize
 
 [module/launcher]
 type=custom/text
-content = 
+content = ""
 content-font=2
 content-foreground=#1793d1
 ;content-foreground=${colors.foreground}
 content-padding=0
-;click-left= "bash ~/.config/polybar/scripts/launcher.sh"
+click-left= "bash ~/.config/polybar/scripts/launcher.sh"
 
 [module/xwindow]
 type = internal/xwindow
@@ -147,7 +147,11 @@ ws-icon-1 = 2;%{T2}%{T-}
 ws-icon-2 = 3;%{T1}%{T-}
 ws-icon-3 = 4;%{T2}%{T-}
 ws-icon-4 = 5;%{T2}%{T-}
-ws-icon-5 = 6;%{T2}ﭮ%{T-}
+ws-icon-5 = 6;%{T3}聆%{T-}
+ws-icon-6 = 7;%{T2}ﭮ%{T-}
+ws-icon-7 = 8;%{T3}%{T-}
+ws-icon-8 = 9;%{T3}%{T-}
+ws-icon-9 = 10;%{T3}%{T-}
 ws-icon-default = " "
 format = <label-state> 
 ;<label-mode>
@@ -437,7 +441,7 @@ type = custom/text
 format-spacing = 2
 content = %{T2}%{T-}
 content-foreground = ${colors.alert}
-click-left = "bash .config/rofi/powermenu/powermenu.sh"
+click-left = "sudo rofi -modi 'Powermenu: /home/zurdi/.config/rofi/scripts/rofi-powermenu.sh' -show Powermenu -theme /home/zurdi/.config/rofi/powermenu.rasi"
 
 [module/powermenu]
 type = custom/menu

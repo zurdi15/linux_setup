@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # $1 - Package manager
 
@@ -79,7 +79,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # Ranger devicons
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 
 # Instructions for minimal Firefox
 echo """
