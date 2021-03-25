@@ -115,9 +115,9 @@ label-unmounted-foreground = ${colors.snow_storm_3}
 [module/i3]
 type = internal/i3
 ws-icon-0 = 1;1: %{T4}%{F#8fbcbb}%{F-}%{T-}
-ws-icon-1 = 2;2: %{T2}%{F#bf616a}%{F-}%{T-}
-ws-icon-2 = 3;3: %{T2}%{F#ebcb8b}%{F-}%{T-}
-ws-icon-3 = 4;4: %{T1}%{F#d08770}%{F-}%{T-}
+ws-icon-1 = 2;2: %{T1}%{F#d08770}%{F-}%{T-}
+ws-icon-2 = 3;3: %{T2}%{F#bf616a}%{F-}%{T-}
+ws-icon-3 = 4;4: %{T2}%{F#ebcb8b}%{F-}%{T-}
 ws-icon-4 = 5;5: %{T2}%{F#81a1c1}%{F-}%{T-}
 ws-icon-default = " "
 format = <label-state> <label-mode>
@@ -349,7 +349,7 @@ type = custom/text
 format-spacing = 2
 content = %{T2}%{T-}
 content-foreground = ${colors.snow_storm_3}
-click-left = "rofi -modi 'Powermenu: ~/.config/rofi/scripts/rofi-powermenu.sh' -show Powermenu -theme ~/.config/rofi/powermenu.rasi"
+click-left = "rofi -modi 'Powermenu: /home/zurdi/.config/rofi/scripts/rofi-powermenu.sh' -show Powermenu -theme /home/zurdi/.config/rofi/powermenu.rasi"
 
 [module/powermenu]
 type = custom/menu

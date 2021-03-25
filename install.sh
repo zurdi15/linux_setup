@@ -110,4 +110,4 @@ echo """
 read -p "Press any key when you are ready... " key
 
 # Copy the .config folder
-cp -a dots/neodots/. ~
+cp -a dots/neodots/. $HOME
