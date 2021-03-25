@@ -1,7 +1,7 @@
  :root {
 
    /* Minimal Functional Fox variables*/
-  --mff-bg: #292f36;
+  --mff-bg: #2e3440;
   --mff-icon-color: #e0fbfc;
   --mff-nav-toolbar-padding: 8px;
   --mff-sidebar-bg: var(--mff-bg);
