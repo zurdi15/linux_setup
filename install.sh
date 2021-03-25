@@ -20,7 +20,7 @@ pm=$1
 # PPA for i3-gaps
 sudo add-apt-repository -y ppa:regolith-linux/stable
 sudo add-apt-repository -y ppa:papirus/papirus
-sudo apt upgrade
+sudo apt update
 
 # Packages
 echo "Installing packages"
