@@ -41,24 +41,33 @@ sudo ${pm} install ruby-dev -y
 sudo ${pm} install build-essential -y
 sudo ${pm} autoremove -y
 sudo gem install colorls
+echo "Installing packages: Done!"
 
 # Fonts
 echo "Installing fonts"
 if [ ! -d ~/.fonts ]; then
 	mkdir ~/.fonts
 fi
-wget -O "~/.fonts/JetBrains Mono Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/JetBrainsMono/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf 
+cp dots/neodots/.fonts/JetBrains\ Mono\ Regular\ Nerd\ Font\ Complete.ttf ~/.fonts/
 fc-cache -f -v
+echo "Installing fonts: Done!"
 
 # SDKMAN
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # uLauncher
-wget https://github.com/Ulauncher/Ulauncher/releases/download/5.8.0/ulauncher_5.8.0_all.deb
-sudo dpkg -i ulauncher_5.8.0_all.deb
-rm ulauncher_5.8.0_all.deb
-git clone https://github.com/KiranWells/ulauncher-nord/ ~/.config/ulauncher/user-themes/nord
+#wget https://github.com/Ulauncher/Ulauncher/releases/download/5.8.0/ulauncher_5.8.0_all.deb
+#sudo dpkg -i ulauncher_5.8.0_all.deb
+#rm ulauncher_5.8.0_all.deb
+#git clone https://github.com/KiranWells/ulauncher-nord/ ~/.config/ulauncher/user-themes/nord
+
+echo "Loading Tilix config"
+dconf load /com/gexperts/Terminix/ < dots/neodots/.config/tilix/terminix.dconf
+echo "Loading Tilix config: Done!"
+
+echo "When oh my zsh is installed, zsh prompt will appear -> just type exit and the instalation will cotinue :)"
+read -p "Press any key when you are ready... " key
 
 # Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -111,7 +120,9 @@ echo """
 read -p "Press any key when you are ready... " key
 
 # Copy the .config folder
+echo "Copying dotfiles to ~/.config"
 cp -a dots/neodots/. $HOME
+echo "Copying dotfiles to ~/.config: Done!"
 
 echo "Aditionally, you can use the Nord theme into any intellij-family IDE and set any wallpaper from ~/.config/wallpaper as background"
 echo "Done!"
