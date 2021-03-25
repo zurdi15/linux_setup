@@ -1,0 +1,11 @@
+# Custom z aliases
+alias l="colorls -lA --sd --dark"
+alias ll="colorls -l --tree --sd --dark"
+alias lll="colorls -lA --tree --sd --dark"
+alias rd="rm -rf"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias ra="ranger"
+alias gitd="git checkout develop"
+alias shut="shutdown now"
