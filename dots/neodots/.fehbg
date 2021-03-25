@@ -1,0 +1,2 @@
+#!/bin/env bash
+feh --no-fehbg --bg-fill '/home/zurdi/.config/wallpaper/wallhaven_bg.jpg' 
