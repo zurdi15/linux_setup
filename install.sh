@@ -31,6 +31,7 @@ sudo ${pm} install i3-gaps -y
 sudo ${pm} install firefox -y
 sudo ${pm} install rofi -y
 sudo ${pm} install nautilus -y
+sudo ${pm} install nodejs -y
 sudo ${pm} install feh -y
 sudo ${pm} install tilix -y
 sudo ${pm} install zsh -y
@@ -117,8 +118,8 @@ fi
 fc-cache -f -v
 echo "Installing fonts: Done!"
 
-echo "Installing nvim plugins"
-nvim +slient +VimEnter +PlugInstall +qall
+echo "Installing nvim plugins (and node)"
+nvim -es -u ~/.config/nvim/init.vim -i NONE -c "PlugInstall" -c "qa"
 echo "Installing nvim plugins: done!"
 
 echo "Aditionally, you can use the Nord theme into any intellij-family IDE and set any wallpaper from ~/.config/wallpaper as background"
