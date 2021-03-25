@@ -46,8 +46,8 @@ echo "Installing fonts"
 if [ ! -d ~/.fonts ]; then
 	mkdir ~/.fonts
 fi
-wget -O ~/.fonts/Ubuntu_Mono_Nerd_Font_Complete.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete.ttf
-wget -O ~/.fonts/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+#wget -O ~/.fonts/Ubuntu_Mono_Nerd_Font_Complete.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete.ttf
+#wget -O ~/.fonts/JetBrains_Mono_Regular_Nerd_Font_Complete_Mono.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
 fc-cache -f -v
 
 # SDKMAN
@@ -80,8 +80,10 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Ranger devicons
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
-# Instructions for minimal Firefox
+# Minimal Firefox
 echo """
+		Instructions for minimal Firefox:
+
     Verify that the user stylesheets (userChrome) option is enabled:
 
         Go to the address about:config in Firefox
@@ -93,21 +95,20 @@ echo """
     Make sure that you have the Default theme enabled
         Go to the address about:addons
         Enable the Default theme if not already enabled
-"""
-read -p "Press any key when you are ready... " key
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/mut-ex/minimal-functional-fox/master/install.sh)"
+		Locate your Firefox user directory. You should be able to find it by navigating to /home/.mozilla/firefox/ and looking for a directory ending with the world .default-release.
+		Within your Firefox user directory, locate the chrome directory, if one does not already exist you can simply go ahead and create it yourself.
+		
+		Copy the content of dots/neodots/.mozilla/firefox/xxxx.default-release/chrome into your own chrome folder (the one that you just searched/created)
 
-echo """
-    Select the Customize option from the hamburger menu (≡), and remove all items except for:
+    Select the Customize option from the hamburger menu (≡ ), and remove all items except for:
 
         Forward button
         Back button
         Downloads button
-
 """
 
 read -p "Press any key when you are ready... " key
 
 # Copy the .config folder
-cp -r dots/neodots/* ~
+cp -a dots/neodots/. ~
