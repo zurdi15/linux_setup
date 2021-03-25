@@ -112,3 +112,6 @@ read -p "Press any key when you are ready... " key
 
 # Copy the .config folder
 cp -a dots/neodots/. $HOME
+
+echo "Aditionally, you can use the Nord theme into any intellij-family IDE and set any wallpaper from ~/.config/wallpaper as background"
+echo "Done!"
