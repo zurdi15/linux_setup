@@ -58,7 +58,7 @@ font-2 = "JetBrainsMono Nerd Font:size=13;3"
 font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
 modules-left = i3
 modules-center = xwindow
-modules-right = cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio date sep power
+modules-right = cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio sep date sep power
 wm-restack = i3
 override-redirect = true
 scroll-up = i3wm-wsnext
@@ -228,11 +228,11 @@ format-disconnected = "%{T2}%{T-}"
 
 [module/date]
 type = internal/date
-interval = 5
-date-alt ="%{T2}%{T-} %a,%e "
-date = "%{T2}%{T-} %e %b %Y "
-time-alt = "%{T2}%{T-} %I:%M %p"
-time = "%{T2}%{T-} %I:%M:%S %p"
+interval = 1
+;date-alt ="%{T2}%{T-} %a,%e "
+date = "%{T2}%{T-} %d-%m-%Y"
+;time-alt = "%{T2}%{T-} %I:%M %p"
+time = "%{T2}%{T-} %H:%M:%S"
 format-prefix-foreground = ${colors.snow_storm_3}
 label = %date% %time%
 
