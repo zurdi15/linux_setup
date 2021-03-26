@@ -28,6 +28,7 @@ sudo ${pm} install neovim -y
 sudo ${pm} install ranger -y
 sudo ${pm} install polybar -y
 sudo ${pm} install i3-gaps -y
+sudo ${pm} install picom -y
 sudo ${pm} install firefox -y
 sudo ${pm} install rofi -y
 sudo ${pm} install nautilus -y

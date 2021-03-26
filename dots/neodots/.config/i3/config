@@ -264,3 +264,10 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 #bar {
 #        status_command i3status
 #}
+
+# Compton
+#exec /usr/bin/compton --config ~/.compton.conf~.i3/config
+
+# Compositor
+# exec_always picom -f
+exec_always --no-startup-id pkill picom; picom --no-use-damage
