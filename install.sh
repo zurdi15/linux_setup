@@ -23,24 +23,7 @@ sudo apt update
 
 # Packages
 echo "Installing packages"
-sudo ${pm} install build-essential -y
-sudo ${pm} install curl -y
-sudo ${pm} install checkinstall -y
-sudo ${pm} install neovim -y
-sudo ${pm} install ranger -y
-sudo ${pm} install polybar -y
-sudo ${pm} install i3-gaps -y
-sudo ${pm} install i3lock-fancy -y
-sudo ${pm} install picom -y
-sudo ${pm} install firefox -y
-sudo ${pm} install rofi -y
-sudo ${pm} install nautilus -y
-sudo ${pm} install nodejs -y
-sudo ${pm} install nitrogen -y
-sudo ${pm} install tilix -y
-sudo ${pm} install zsh -y
-sudo ${pm} install ruby -y
-sudo ${pm} install ruby-dev -y
+sudo ${pm} install build-essential curl checkinstall neovim ranger polybar i3-gaps i3lock-fancy picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev -y
 sudo ${pm} autoremove -y
 sudo gem install colorls
 echo "Installing packages: Done!"
@@ -49,7 +32,7 @@ echo "Installing packages: Done!"
 echo "Installing i3lock-fancy dependencies"
 sudo apt install bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev \
     libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev \
-    libxkbcommon-x11-dev feh libev-dev;
+    libxkbcommon-x11-dev feh libev-dev -y;
 git clone https://github.com/PandorasFox/i3lock-color && cd i3lock-color;
 autoreconf -i; ./configure;
 make; sudo checkinstall --pkgname=i3lock-color --pkgversion=1 -y;
