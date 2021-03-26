@@ -117,11 +117,11 @@ click-left = "tilix -e 'sudo apt upgrade && bash ~/.config/polybar/scripts/updat
 
 [module/i3]
 type = internal/i3
-ws-icon-0 = 1;1: %{T4}%{F#8fbcbb}%{F-}%{T-}
-ws-icon-1 = 2;2: %{T1}%{F#d08770}%{F-}%{T-}
-ws-icon-2 = 3;3: %{T2}%{F#bf616a}%{F-}%{T-}
-ws-icon-3 = 4;4: %{T2}%{F#ebcb8b}%{F-}%{T-}
-ws-icon-4 = 5;5: %{T2}%{F#81a1c1}%{F-}%{T-}
+ws-icon-0 = 1;1: %{T4}%{F#8fbcbb} %{F-}%{T-}
+ws-icon-1 = 2;2: %{T1}%{F#d08770} %{F-}%{T-}
+ws-icon-2 = 3;3: %{T2}%{F#bf616a} %{F-}%{T-}
+ws-icon-3 = 4;4: %{T2}%{F#ebcb8b} %{F-}%{T-}
+ws-icon-4 = 5;5: %{T2}%{F#81a1c1} %{F-}%{T-}
 ws-icon-default = " "
 format = <label-state> <label-mode>
 index-sort = true
@@ -130,12 +130,13 @@ wrapping-scroll = false
 ;pin-workspaces = true
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-;label-focused-background = ${colors.polar_night_4}
+label-focused-background = ${colors.polar_night_4}
 label-focused-underline= ${colors.frost_1}
 label-focused-padding = 3
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
-label-unfocused-foreground = #ffffff
+label-unfocused-foreground = ${colors.snow_storm_3}
+label-unfocused-background = ${colors.polar_night_4}
 label-unfocused-padding = 3
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
@@ -154,11 +155,11 @@ expand-right = true
 ; "menu-LEVEL-N" has the same properties as "label-NAME" with
 ; the additional "exec" property
 ; Commands will be executed using "/bin/sh -c $COMMAND"
-label-open = %{T2}%{F#5e81ac}       %{F-}%{T-}
+label-open = %{T2}%{F#5e81ac}    %{F-}%{T-}
 label-close = %{T2}%{F#5e81ac}ﱮ%{F-}%{T-}
 menu-0-0 = "%{T2}%{F#5e81ac}%{F-}%{T-} Root"
 menu-0-0-exec = "nautilus / &"
-menu-0-1 = "%{T2}%{F#5e81ac}%{F-}%{T-} Home       "
+menu-0-1 = "%{T2}%{F#5e81ac}%{F-}%{T-} Home    "
 menu-0-1-exec = "nautilus $HOME &"
 ; Optional item separator
 ; Default: none
