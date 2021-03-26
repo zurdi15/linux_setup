@@ -151,11 +151,11 @@ expand-right = true
 ; "menu-LEVEL-N" has the same properties as "label-NAME" with
 ; the additional "exec" property
 ; Commands will be executed using "/bin/sh -c $COMMAND"
-label-open = %{T2}%{F#5e81ac}   %{F-}%{T-}
+label-open = %{T2}%{F#5e81ac}       %{F-}%{T-}
 label-close = %{T2}%{F#5e81ac}ﱮ%{F-}%{T-}
 menu-0-0 = "%{T2}%{F#5e81ac}%{F-}%{T-} Root"
 menu-0-0-exec = "nautilus / &"
-menu-0-1 = "%{T2}%{F#5e81ac}%{F-}%{T-} Home"
+menu-0-1 = "%{T2}%{F#5e81ac}%{F-}%{T-} Home       "
 menu-0-1-exec = "nautilus $HOME &"
 ; Optional item separator
 ; Default: none
