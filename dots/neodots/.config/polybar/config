@@ -58,7 +58,7 @@ font-2 = "JetBrainsMono Nerd Font:size=13;3"
 font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
 modules-left = menu-places i3
 modules-center = xwindow
-modules-right = cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio sep date
+modules-right = update sep cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio sep date
 wm-restack = i3
 override-redirect = true
 scroll-up = i3wm-wsnext
@@ -86,7 +86,7 @@ format-prefix-foreground = ${colors.snow_storm_3}
 ;format-prefix-underline = ${colors.aurora_1}
 ;label-layout = %icon%
 ;label-layout-underline = ${colors.aurora_1}
-label-indicator = %icon%
+label-indicator-on = %icon%
 label-indicator-padding = 0
 label-indicator-margin = 0
 ;label-indicator-background = ${colors.aurora_1}
@@ -111,6 +111,14 @@ mount-0 = /
 label-mounted = %{T2}%{T-} %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.snow_storm_3}
+
+[module/update]
+type = custom/script
+exec = ~/.config/polybar/scripts/update.sh
+interval = 600
+format = <label>
+label = %{T3}%{T-} %output%
+click-left = "tilix -e 'sudo apt upgrade'"
 
 [module/i3]
 type = internal/i3
@@ -176,14 +184,6 @@ label-song-ellipsis = true
 [module/sep]
 type = custom/text
 content = |
-
-;[module/update]
-;type = custom/script
-;exec = sudo ~/.config/polybar/scripts/update.sh
-;interval = 600
-;format = <label>
-;label = %{T3}%{T-} %output%
-;click-left = "bash ~/.config/polybar/scripts/upclick.sh"
 
 [module/xbacklight]
 type = internal/light
