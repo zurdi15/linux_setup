@@ -1,38 +1,18 @@
 #!/bin/bash
 
-# $1 - Package manager
-
-function show_help {
-	echo "Linux Setup as Z mode v1.0 - Zurdi Zurdo"
-	echo "Released under the GNU GLP"
-	echo ""
-	echo "Usage: ./z_setup.sh [package manager]"
-}
-
-if [ -z $1 ]; then
-	echo "Package manager needed"
-	echo ""
-	show_help
-	exit 1
-fi
-pm=$1
-
 # PPA for i3-gaps
 sudo add-apt-repository -y ppa:regolith-linux/stable
-sudo apt update
+sudo apt-get update
 
 # Packages
 echo "Installing packages"
-sudo ${pm} install build-essential curl checkinstall neovim ranger polybar i3-gaps i3lock-fancy picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev -y
-sudo ${pm} autoremove -y
+sudo apt-get install build-essential curl checkinstall neovim ranger polybar i3-gaps i3lock-fancy picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
+sudo apt-get autoremove -y
 sudo gem install colorls
 echo "Installing packages: Done!"
 
-## Install i3lock-fancy dependencies
-echo "Installing i3lock-fancy dependencies"
-sudo apt install bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev \
-    libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev \
-    libxkbcommon-x11-dev feh libev-dev -y;
+## Install i3lock-fancy dependencies - i3lock-color
+echo "Installing i3lock-fancy dependencies (i3-lock-color)"
 git clone https://github.com/PandorasFox/i3lock-color && cd i3lock-color;
 autoreconf -i; ./configure;
 make; sudo checkinstall --pkgname=i3lock-color --pkgversion=1 -y;
