@@ -131,11 +131,11 @@ label = %title:0:100:...%
 
 [module/update]
 type = custom/script
-exec = ~/.config/polybar/scripts/update.sh
+exec = ~/.config/polybar/scripts/upgradable.sh
 interval = 600
 format = <label>
 label = "  %{T3} %{T-} %output%  "
-click-left = "tilix -e 'sudo apt upgrade && bash ~/.config/polybar/scripts/update.sh'"
+click-left = ~/.config/polybar/scripts/upgrade.sh
 label-background = ${colors.polar_night_2}
 
 [module/cpu]
@@ -143,15 +143,12 @@ type = internal/cpu
 interval = 2
 format = <label>
 label = "  %{T2}﬙ %{T-} %percentage:%%  "
-;format-prefix = "%{T2}﬙ %{T-}"
-;format-prefix-foreground = ${colors.snow_storm_3}
 label-background = ${colors.polar_night_4}
 
 [module/memory]
 type = internal/memory
 interval = 2
 format = <label>
-;format-prefix = " "
 format-prefix-foreground = ${colors.snow_storm_3}
 label = "   %percentage_used:2%%  "
 label-background = ${colors.polar_night_4}

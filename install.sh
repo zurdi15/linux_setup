@@ -144,5 +144,28 @@ echo -e """\n
 """
 read -p "Waiting for wlan/eth polybar modules setup..." key
 
+echo -e """\n
+\e[0;49;94mInstructions for packages module on polybar:\e[0;49;0m
+	There are two apt wrappers to update and upgrade apt packages from polybar
+
+	They need to be in sudoers file to avoid password.
+
+	With the command 'sudo visudo' you can add them to your user and enable polybar to launch them with privileges
+
+	Before this make sure that both scripts have 755 permissions.
+
+	Scripts are in polybar config filder:
+	 - ~/.config/polybar/scripts/upgradable.sh
+	 - ~/.config/polybar/scripts/upgrade.sh
+
+	Add them into the user privilege specification section as follows:
+	 - [your_user_name]    ALL = (ALL) NOPASSWD: /home/[your_user_name]/.config/polybar/upgradable.sh 
+	 - [your_user_name]    ALL = (ALL) NOPASSWD: /home/[your_user_name]/.config/polybar/upgrade.sh 
+	
+	Change them in the wlan/eth polybar module in ~/.config/polybar/config
+"""
+read -p "Waiting for wlan/eth polybar modules setup..." key
+
+
 echo -e "\e[0;49;92mDone!\e[0;49;0m"
 
