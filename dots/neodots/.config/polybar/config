@@ -151,11 +151,11 @@ expand-right = true
 ; "menu-LEVEL-N" has the same properties as "label-NAME" with
 ; the additional "exec" property
 ; Commands will be executed using "/bin/sh -c $COMMAND"
-label-open = %{T2}   %{T-}
-label-close = %{T2}ﱮ%{T-}
-menu-0-0 = "%{T2}%{T-} Root"
+label-open = %{T2}%{F#5e81ac}   %{F-}%{T-}
+label-close = %{T2}%{F#5e81ac}ﱮ%{F-}%{T-}
+menu-0-0 = "%{T2}%{F#5e81ac}%{F-}%{T-} Root"
 menu-0-0-exec = "nautilus / &"
-menu-0-1 = "%{T2}%{T-} Home"
+menu-0-1 = "%{T2}%{F#5e81ac}%{F-}%{T-} Home"
 menu-0-1-exec = "nautilus $HOME &"
 ; Optional item separator
 ; Default: none
@@ -222,8 +222,8 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 format-connected = <label-connected>
-label-connected = %{T2} %{T-}
-format-disconnected = %{T1} %{T-}
+label-connected = %{T2}%{F#a3be8c}直%{F-}%{T-}
+format-disconnected = %{T1}%{F#bf616a}睊%{F-}%{T-}
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
@@ -241,8 +241,8 @@ interface = enp0s3
 interval = 3.0
 format = <label>
 format-connected-prefix-foreground = ${colors.snow_storm_3}
-label-connected = "%{T2}%{T-}"
-format-disconnected = "%{T2}%{T-}"
+label-connected = "%{T2}%{F#a3be8c}%{F-}%{T-}"
+format-disconnected = "%{T2}%{F#bf616a}%{F-}%{T-}"
 
 [module/date]
 type = internal/date
