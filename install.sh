@@ -32,7 +32,7 @@ sudo ${pm} install firefox -y
 sudo ${pm} install rofi -y
 sudo ${pm} install nautilus -y
 sudo ${pm} install nodejs -y
-sudo ${pm} install feh -y
+sudo ${pm} install nitrogen -y
 sudo ${pm} install tilix -y
 sudo ${pm} install zsh -y
 sudo ${pm} install ruby -y
