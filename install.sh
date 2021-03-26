@@ -7,6 +7,9 @@ sudo apt-get update
 # Packages
 echo "Installing packages"
 sudo apt-get install build-essential curl checkinstall neovim ranger polybar i3-gaps i3lock-fancy picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
+if [ $? -ne 0 ]; then
+	echo -e "\e[0;49;91ERROR: something went wrong installing dependencies. Aborting."
+	exit 1
 sudo apt-get autoremove -y
 sudo gem install colorls
 echo "Installing packages: Done!"
@@ -140,11 +143,11 @@ echo -e """\n
 
 	Add them into the user privilege specification section as follows:
 	 - [your_user_name]    ALL = (ALL) NOPASSWD: /home/[your_user_name]/.config/polybar/upgradable.sh 
-	 - [your_user_name]    ALL = (ALL) NOPASSWD: /home/[your_user_name]/.config/polybar/upgrade.sh 
+	NOT NEEDED[wip] -> - [your_user_name]    ALL = (ALL) NOPASSWD: /home/[your_user_name]/.config/polybar/upgrade.sh 
 	
 	Change them in the wlan/eth polybar module in ~/.config/polybar/config
 """
-read -p "Waiting for wlan/eth polybar modules setup..." key
+read -p "Waiting for packages polybar module setup..." key
 
 
 echo -e "\e[0;49;92mDone!\e[0;49;0m"
