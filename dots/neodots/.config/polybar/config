@@ -194,20 +194,13 @@ label-indicator-off-foreground = ${colors.polar_night_1}
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp4s0
 interval = 3.0
-format-connected = <label-connected>
-label-connected = %{T2}%{F#a3be8c}直%{F-}%{T-}
-format-disconnected = %{T1}%{F#bf616a}睊%{F-}%{T-}
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.snow_storm_3}
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+format = <label>
+label-connected = %{T2}%{B#4c566a} 直  %{B-}%{T-}
+label-connected-foreground = ${colors.aurora_4}
+label-disconnected = %{T2}%{B#4c566a} 睊  %{B-}%{T-}
+label-disconnected-foreground = ${colors.aurora_1}
 ramp-signal-foreground = ${colors.snow_storm_3}
 
 [module/eth]
