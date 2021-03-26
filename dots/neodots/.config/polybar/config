@@ -49,16 +49,16 @@ line-size = 1
 line-color = ${colors.aurora_1}
 border-size = 0
 padding-left = 2
-padding-right = 3
-module-margin-left = 1
-module-margin-right = 1
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
 font-0 = "JetBrainsMono Nerd Font:size=9;2"
 font-1 = "JetBrainsMono Nerd Font:size=11;3"
 font-2 = "JetBrainsMono Nerd Font:size=13;3"
 font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
 modules-left = menu-places i3
 modules-center = xwindow
-modules-right = update sep cpu memory filesystem sep xkeyboard sep wlan eth sep battery pulseaudio sep date
+modules-right = update cpu memory filesystem xkeyboard wlan eth battery pulseaudio date
 wm-restack = i3
 override-redirect = true
 scroll-up = i3wm-wsnext
@@ -73,15 +73,104 @@ content-foreground=${colors.frost_4}
 content-padding=0
 click-left= "bash ~/.config/polybar/scripts/launcher.sh"
 
+[module/menu-places]
+type = custom/menu
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+; Commands will be executed using "/bin/sh -c $COMMAND"
+label-open = %{T2}    %{T-}
+label-open-foreground = ${colors.frost_4}
+label-close = %{T2}ﱮ%{T-}
+label-close-foreground = ${colors.frost_4}
+menu-0-0 = "%{T2}%{F#5e81ac}%{F-}%{T-} Root"
+menu-0-0-exec = "nautilus / &"
+menu-0-1 = "%{T2}%{F#5e81ac}%{F-}%{T-} Home    "
+menu-0-1-exec = "nautilus $HOME &"
+; Optional item separator
+; Default: none
+label-separator = " | "
+
+[module/i3]
+type = internal/i3
+ws-icon-0 = 1;%{T4}%{F#8fbcbb} %{F-}%{T-}
+ws-icon-1 = 2;%{T1}%{F#d08770} %{F-}%{T-}
+ws-icon-2 = 3;%{T2}%{F#bf616a} %{F-}%{T-}
+ws-icon-3 = 4;%{T2}%{F#ebcb8b} %{F-}%{T-}
+ws-icon-4 = 5;%{T2}%{F#81a1c1} %{F-}%{T-}
+ws-icon-default = 
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+; focused = Active workspace on focused monitor
+label-focused = %index%: %icon%
+label-focused-background = ${colors.polar_night_4}
+label-focused-underline= ${colors.frost_1}
+label-focused-padding = 3
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%: %icon%
+label-unfocused-foreground = ${colors.snow_storm_3}
+label-unfocused-background = ${colors.polar_night_4}
+label-unfocused-padding = 3
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.aurora_1}
+label-urgent-padding = 2
+; Separator in between workspaces
+;label-separator = |
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:100:...%
 
+[module/update]
+type = custom/script
+exec = ~/.config/polybar/scripts/update.sh
+interval = 600
+format = <label>
+label = "  %{T3} %{T-} %output%  "
+click-left = "tilix -e 'sudo apt upgrade && bash ~/.config/polybar/scripts/update.sh'"
+label-background = ${colors.polar_night_2}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label>
+label = "  %{T2}﬙ %{T-} %percentage:%%  "
+;format-prefix = "%{T2}﬙ %{T-}"
+;format-prefix-foreground = ${colors.snow_storm_3}
+label-background = ${colors.polar_night_4}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = <label>
+;format-prefix = " "
+format-prefix-foreground = ${colors.snow_storm_3}
+label = "   %percentage_used:2%%  "
+label-background = ${colors.polar_night_4}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = "  %{T2} %{T-} %percentage_used%%  "
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.snow_storm_3}
+label-mounted-background = ${colors.polar_night_4}
+
 [module/xkeyboard]
 type = internal/xkeyboard
 format = <label-indicator>
-format-spacing = 1
-format-prefix = ": "
+format-spacing = 0
+format-prefix = "  :"
+format-prefix-background = ${colors.polar_night_2}
 format-prefix-foreground = ${colors.snow_storm_3}
 label-indicator-on = %icon%
 label-indicator-off = %icon%
@@ -96,122 +185,12 @@ layout-icon-1 = 
 ; indicator-icon-[0-9]+ = indicator;off icon;on icon
 ; Provides the content of the %icon% token in label-indicator-*
 indicator-icon-default = 
-indicator-icon-0 = caps lock;%{T4}%{F#434c5e}%{F-}%{T-};%{T4}%{T-}
-indicator-icon-1 = num lock;%{T4}%{F#434c5e}%{F-}%{T-};%{T4}%{T-}
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-mount-0 = /
-label-mounted = %{T2}%{T-} %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.snow_storm_3}
-
-[module/update]
-type = custom/script
-exec = ~/.config/polybar/scripts/update.sh
-interval = 600
-format = <label>
-label = %{T3}%{T-} %output%
-click-left = "tilix -e 'sudo apt upgrade && bash ~/.config/polybar/scripts/update.sh'"
-
-[module/i3]
-type = internal/i3
-ws-icon-0 = 1;1: %{T4}%{F#8fbcbb} %{F-}%{T-}
-ws-icon-1 = 2;2: %{T1}%{F#d08770} %{F-}%{T-}
-ws-icon-2 = 3;3: %{T2}%{F#bf616a} %{F-}%{T-}
-ws-icon-3 = 4;4: %{T2}%{F#ebcb8b} %{F-}%{T-}
-ws-icon-4 = 5;5: %{T2}%{F#81a1c1} %{F-}%{T-}
-ws-icon-default = " "
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-; focused = Active workspace on focused monitor
-label-focused = %icon%
-label-focused-background = ${colors.polar_night_4}
-label-focused-underline= ${colors.frost_1}
-label-focused-padding = 3
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%
-label-unfocused-foreground = ${colors.snow_storm_3}
-label-unfocused-background = ${colors.polar_night_4}
-label-unfocused-padding = 3
-; visible = Active workspace on unfocused monitor
-label-visible = %icon%
-; urgent = Workspace with urgency hint set
-label-urgent = %icon%
-label-urgent-background = ${colors.aurora_1}
-label-urgent-padding = 2
-; Separator in between workspaces
-;label-separator = |
-
-[module/menu-places]
-type = custom/menu
-; If true, <label-toggle> will be to the left of the menu items (default).
-; If false, it will be on the right of all the items.
-expand-right = true
-; "menu-LEVEL-N" has the same properties as "label-NAME" with
-; the additional "exec" property
-; Commands will be executed using "/bin/sh -c $COMMAND"
-label-open = %{T2}%{F#5e81ac}    %{F-}%{T-}
-label-close = %{T2}%{F#5e81ac}ﱮ%{F-}%{T-}
-menu-0-0 = "%{T2}%{F#5e81ac}%{F-}%{T-} Root"
-menu-0-0-exec = "nautilus / &"
-menu-0-1 = "%{T2}%{F#5e81ac}%{F-}%{T-} Home    "
-menu-0-1-exec = "nautilus $HOME &"
-; Optional item separator
-; Default: none
-label-separator = " | "
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-
-[module/sep]
-type = custom/text
-content = |
-
-[module/xbacklight]
-type = internal/light
-format = <label>
-label = "" 
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-;format-prefix = "%{T2}%{T-} "
-format = <ramp> <label>
-label = %percentage%
-ramp-0 = %{T2}%{T-}
-ramp-1 = %{T2}%{T-}
-ramp-2 = %{T2}%{T-}
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format = <label>
-label = %percentage:%%
-format-prefix = "%{T2}﬙ %{T-}"
-format-prefix-foreground = ${colors.snow_storm_3}
-
-[module/memory]
-type = internal/memory
-interval = 2
-format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.snow_storm_3}
-label = %percentage_used:2%%
+indicator-icon-0 = caps lock;%{T4}  %{T-};%{T4}  %{T-} 
+indicator-icon-1 = num lock;%{T4}   %{T-};%{T4}   %{T-}
+label-indicator-on-background = ${colors.polar_night_2}
+label-indicator-on-underline = ${colors.frost_1}
+label-indicator-off-background = ${colors.polar_night_2}
+label-indicator-off-foreground = ${colors.polar_night_1}
 
 [module/wlan]
 type = internal/network
@@ -236,71 +215,54 @@ type = internal/network
 interface = enp0s3
 interval = 3.0
 format = <label>
-format-connected-prefix-foreground = ${colors.snow_storm_3}
-label-connected = "%{T2}%{F#a3be8c}%{F-}%{T-}"
-format-disconnected = "%{T2}%{F#bf616a}%{F-}%{T-}"
+label-connected = "%{T2}%{B#4c566a}  %{B-}%{T-}"
+label-connected-foreground = ${colors.aurora_4}
+label-disconnected = "%{T2}%{B#4c566a}  %{T-}"
+label-disconnected-foreground = ${colors.aurora_1}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume><label-volume>
+label-volume = "%percentage% "
+label-volume-foreground = ${colors.snow_storm_3}
+label-muted = %{T3}  %{T-}
+label-muted-foreground = ${colors.polar_night_4}
+label-volume-background = ${colors.polar_night_2}
+label-mute-background = ${colors.polar_night_2}
+ramp-volume-0 = %{T3}  %{T-}
+ramp-volume-1 = %{T3}  %{T-}
+ramp-volume-2 = %{T3}  %{T-}
+ramp-volume-0-background = ${colors.polar_night_2}
+ramp-volume-1-background = ${colors.polar_night_2}
+ramp-volume-2-background = ${colors.polar_night_2}
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.snow_storm_3}
 
 [module/date]
 type = internal/date
 interval = 1
-;date-alt ="%{T2}%{T-} %a,%e "
-date = "%{T2}%{T-} %d-%m-%Y"
-;time-alt = "%{T2}%{T-} %I:%M %p"
-time = "%{T2}%{T-} %H:%M:%S"
-format-prefix-foreground = ${colors.snow_storm_3}
+date = "%{T2}  %{T-}%d-%m-%Y"
+time = "%{T2} %{T-}%H:%M:%S "
 label = %date% %time%
+label-background = ${colors.polar_night_4}
 
-[module/pulseaudio]
-type = internal/pulseaudio
-format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%
-label-volume-foreground = ${colors.snow_storm_3}
-label-muted = %{T3}%{T-}
-label-muted-foreground = ${colors.polar_night_4}
-ramp-volume-0 = %{T3}%{T-}
-ramp-volume-1 = %{T3}%{T-}
-ramp-volume-2 = %{T3}%{T-}
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.snow_storm_3}
-
-[module/alsa]
-type = internal/alsa
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-format-muted-prefix = " "
-format-muted-foreground = ${colors.snow_storm_3}
-label-muted = sound muted
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.snow_storm_3}
+[module/sep]
+type = custom/text
+content = |
 
 [module/battery]
 type = internal/battery
