@@ -243,6 +243,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# i3Lock key-map
+bindsym $mod+x exec betterlockscreen -u ~/.config/wallpaper/nord_bg.png -l blur
+
 # Wallpaper
 exec nitrogen --set-scaled ~/.config/wallpaper/nord_bg.png
 
@@ -264,9 +267,6 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 #bar {
 #        status_command i3status
 #}
-
-# Compton
-#exec /usr/bin/compton --config ~/.compton.conf~.i3/config
 
 # Compositor
 # exec_always picom -f
