@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-updates=$(apt-get upgrade -s | grep -P '^\d+ *'|cut -d" " -f1)
-echo $updates
+updates=$(apt list --upgradable 2> /dev/null | grep -c upgradable);
+
+if [ "$updates" -gt 0 ]; then
+    echo "$updates"
+else
+    echo ""
+fi

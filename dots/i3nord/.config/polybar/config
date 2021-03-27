@@ -132,10 +132,9 @@ label = %title:0:100:...%
 [module/update]
 type = custom/script
 exec = ~/.config/polybar/scripts/upgradable.sh
-interval = 600
 format = <label>
 label = "  %{T3} %{T-} %output%  "
-click-left = tilix -e 'sudo apt-get upgrade'
+click-left = tilix -e 'sudo apt upgrade'
 label-background = ${colors.polar_night_2}
 
 [module/cpu]
