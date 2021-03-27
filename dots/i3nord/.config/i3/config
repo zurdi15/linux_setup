@@ -89,6 +89,8 @@ bindsym $mod+Shift+f exec "firefox"
 bindsym $mod+Shift+i exec "intellij-idea-community"
 # start pycharm
 bindsym $mod+Shift+p exec "pycharm-community"
+# start sublime-text
+bindsym $mod+Shift+s exec "subl"
 # start nautilus
 bindsym $mod+Shift+n exec "nautilus"
 
@@ -205,7 +207,9 @@ assign [class="jetbrains-idea-ce"] $ws3
 for_window [class="jetbrains-idea-ce"] focus
 assign [class="jetbrains-pycharm-ce"] $ws4
 for_window [class="jetbrains-pycharm-ce"] focus
-assign [class="Org.gnome.Nautilus"] $ws5
+assign [class="Sublime_text"] $ws5
+for_window [class="Sublime_text"] focus
+assign [class="Org.gnome.Nautilus"] $ws6
 for_window [class="Org.gnome.Nautilus"] focus
 
 # reload the configuration file
