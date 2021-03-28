@@ -209,7 +209,7 @@ assign [class="jetbrains-pycharm-ce"] $ws4
 for_window [class="jetbrains-pycharm-ce"] focus
 assign [class="Sublime_text"] $ws5
 for_window [class="Sublime_text"] focus
-assign [class="Org.gnome.Nautilus"] $ws6
+assign [class="Org.gnome.Nautilus"] $ws8
 for_window [class="Org.gnome.Nautilus"] focus
 
 # reload the configuration file
@@ -218,7 +218,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+q exec "rofi -show 'Powermenu: /home/$USER/.config/rofi/scripts/rofi-powermenu.sh' -theme ~/.config/rofi/powermenu.rasi"
+bindsym $mod+Shift+q exec "rofi -show 'Powermenu: /home/zurdi/.config/rofi/scripts/rofi-powermenu.sh' -theme ~/.config/rofi/powermenu.rasi"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
