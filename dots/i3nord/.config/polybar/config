@@ -197,12 +197,12 @@ label-indicator-off-foreground = ${colors.polar_night_1}
 
 [module/wlan]
 type = internal/network
-interface = wlp0s20f3
+interface = wlp4s0
 interval = 3.0
 format = <label>
-label-connected = %{T2}%{B#4c566a} 直 %{B-}%{T-}
+label-connected = %{T2}%{B#4c566a}%{A1:nm-connection-editor:} 直 %{A-}%{B-}%{T-}
 label-connected-foreground = ${colors.aurora_4}
-label-disconnected = %{T2}%{B#4c566a} 睊 %{B-}%{T-}
+label-disconnected = %{T2}%{B#4c566a}%{A1:nm-connection-editor:} 睊 %{A-}%{B-}%{T-}
 label-disconnected-foreground = ${colors.aurora_1}
 
 [module/eth]
