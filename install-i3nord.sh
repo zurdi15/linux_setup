@@ -6,7 +6,7 @@ sudo apt-get update
 
 # Packages
 echo "Installing packages"
-sudo apt-get install build-essential curl checkinstall neovim ranger pavucontrol polybar i3-gaps i3lock-fancy picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
+sudo apt-get install build-essential curl checkinstall neovim ranger pavucontrol polybar i3-gaps i3lock-fancy playerctl picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
 sudo apt-get autoremove -y
 sudo gem install colorls
 echo "Installing packages: Done!"
@@ -18,6 +18,12 @@ autoreconf -i; ./configure;
 make; sudo checkinstall --pkgname=i3lock-color --pkgversion=1 -y;
 cd .. && sudo rm -r i3lock-color;
 echo "Installing i3lock-fancy dependencies: Done!"
+
+## Installing zscroll
+echo "Installing spotify polybar module dependencies (zscroll)"
+git clone https://github.com/noctuid/zscroll && cd zscroll
+sudo python3 setup.py install
+cd .. && sudo rm -r zscroll
 
 # SDKMAN
 curl -s "https://get.sdkman.io" | bash
@@ -131,6 +137,7 @@ echo -e """\n
 """
 
 echo -e """\n
+\e[0;49;94mInstructions for audio controls:\e[0;49;0m
 	Change your audio devices to swap them from terminal in .bas_aliases.
 	Check your sink names with: pacmd list-sinks
 """
