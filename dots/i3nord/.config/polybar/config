@@ -59,12 +59,15 @@ font-2 = "JetBrainsMono Nerd Font:size=13;3"
 font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
 modules-left = menu-places i3
 modules-center = xwindow
-modules-right = update cpu memory filesystem xkeyboard wlan eth battery pulseaudio date
+modules-right = update cpu memory filesystem xkeyboard battery pulseaudio date
 wm-restack = i3
 override-redirect = true
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 cursor-click = pointer
+tray-position = right
+tray-padding = 5
+tray-background = ${colors.polar_night_4}
 
 [module/launcher]
 type=custom/text
@@ -97,19 +100,20 @@ label-separator = " | "
 [module/i3]
 type = internal/i3
 ws-icon-0 = 1;%{T4}%{F#8fbcbb} %{F-}%{T-}
-ws-icon-1 = 2;%{T1}%{F#d08770} %{F-}%{T-}
-ws-icon-2 = 3;%{T2}%{F#bf616a} %{F-}%{T-}
-ws-icon-3 = 4;%{T2}%{F#ebcb8b} %{F-}%{T-}
-ws-icon-4 = 5;%{T1}%{F#eceff4} %{F-}%{T-}
-ws-icon-5 = 6;%{T2}%{F#eceff4}聆 %{F-}%{T-}
-ws-icon-6 = 7;%{T1}%{F#eceff4} %{F-}%{T-}
-ws-icon-7 = 8;%{T2}%{F#81a1c1} %{F-}%{T-}
+ws-icon-1 = 2;%{T3}%{F#eceff4} %{F-}%{T-}
+ws-icon-2 = 3;%{T1}%{F#d08770} %{F-}%{T-}
+ws-icon-3 = 4;%{T2}%{F#bf616a} %{F-}%{T-}
+ws-icon-4 = 5;%{T2}%{F#ebcb8b} %{F-}%{T-}
+ws-icon-5 = 6;%{T1}%{F#eceff4} %{F-}%{T-}
+ws-icon-6 = 7;%{T2}%{F#eceff4}聆 %{F-}%{T-}
+ws-icon-7 = 8;%{T2}%{F#b48ead} %{F-}%{T-}
+ws-icon-8 = 9;%{T2}%{F#81a1c1} %{F-}%{T-}
 ws-icon-default = 
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 ; focused = Active workspace on focused monitor
 label-focused = %index%: %icon%
 label-focused-background = ${colors.polar_night_4}
@@ -197,13 +201,13 @@ label-indicator-off-foreground = ${colors.polar_night_1}
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlp0s20f3
 interval = 3.0
 format = <label>
-label-connected = %{T2}%{B#4c566a}%{A1:nm-connection-editor:} 直 %{A-}%{B-}%{T-}
+label-connected = %{T2}%{B#4c566a} 直 %{B-}%{T-}
 label-connected-foreground = ${colors.aurora_4}
-label-disconnected = %{T2}%{B#4c566a}%{A1:nm-connection-editor:} 睊 %{A-}%{B-}%{T-}
-label-disconnected-foreground = ${colors.aurora_1}
+;label-disconnected = %{T2}%{B#4c566a} 睊 %{B-}%{T-}
+;label-disconnected-foreground = ${colors.aurora_1}
 
 [module/eth]
 type = internal/network
@@ -212,8 +216,8 @@ interval = 3.0
 format = <label>
 label-connected = "%{T2}%{B#4c566a}  %{B-}%{T-}"
 label-connected-foreground = ${colors.aurora_4}
-label-disconnected = "%{T2}%{B#4c566a}  %{T-}"
-label-disconnected-foreground = ${colors.aurora_1}
+;label-disconnected = "%{T2}%{B#4c566a}  %{T-}"
+;label-disconnected-foreground = ${colors.aurora_1}
 
 [module/battery]
 type = internal/battery

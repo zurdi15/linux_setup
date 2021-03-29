@@ -124,5 +124,11 @@ echo -e """\n
 """
 read -p "Waiting for wlan/eth polybar modules setup..." key
 
+echo -e """\n
+\e[0;49;94mInstructions for Slack:\e[0;49;0m
+	Set custom theme with this Nord palette: 
+	 - #2E3440,#3B4252,#88C0D0,#2E3440,#3B4252,#D8DEE9,#A3BE8C,#81A1C1,#3B4252,#D8DEE9
+"""
+
 echo -e "\e[0;49;92mDone!\e[0;49;0m"
 

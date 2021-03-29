@@ -83,14 +83,20 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec "tilix" 
-# start firefox
+# start thunderbird
+bindsym $mod+Shift+m exec "thunderbird"
+# start intellij
 bindsym $mod+Shift+f exec "firefox"
 # start intellij
 bindsym $mod+Shift+i exec "intellij-idea-community"
 # start pycharm
 bindsym $mod+Shift+p exec "pycharm-community"
 # start sublime-text
-bindsym $mod+Shift+s exec "subl"
+bindsym $mod+Shift+e exec "subl"
+# start slack
+bindsym $mod+Shift+s exec "slack"
+# start teams
+bindsym $mod+Shift+t exec "teams"
 # start nautilus
 bindsym $mod+Shift+n exec "nautilus"
 
@@ -183,8 +189,8 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-bindsym --whole-window --border $mod+button5 workspace next
-bindsym --whole-window --border $mod+button4 workspace prev
+bindsym --whole-window --border $mod+button5 workspace next_on_output
+bindsym --whole-window --border $mod+button4 workspace prev_on_output
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -204,15 +210,21 @@ bindsym $mod+p move workspace to output right
 #Assign programs to workspaces use xprop for class name
 assign [class="Tilix"] $ws1
 for_window [class="Tilix"] focus
-assign [class="Firefox"] $ws2
+assign [class="Thunderbird"] $ws2
+for_window [class="Thunderbird"] focus
+assign [class="Firefox"] $ws3
 for_window [class="Firefox"] focus
-assign [class="jetbrains-idea-ce"] $ws3
+assign [class="jetbrains-idea-ce"] $ws4
 for_window [class="jetbrains-idea-ce"] focus
-assign [class="jetbrains-pycharm-ce"] $ws4
+assign [class="jetbrains-pycharm-ce"] $ws5
 for_window [class="jetbrains-pycharm-ce"] focus
-assign [class="Sublime_text"] $ws5
+assign [class="Sublime_text"] $ws6
 for_window [class="Sublime_text"] focus
-assign [class="Org.gnome.Nautilus"] $ws8
+assign [class="Slack"] $ws7
+for_window [class="Slack"] focus
+assign [class="Microsoft Teams - Preview"] $ws8
+for_window [class="Microsoft Teams - Preview"] focus
+assign [class="Org.gnome.Nautilus"] $ws9
 for_window [class="Org.gnome.Nautilus"] focus
 
 # reload the configuration file
@@ -253,9 +265,6 @@ bindsym $mod+r mode "resize"
 # i3Lock key-map
 bindsym $mod+x exec i3lock-fancy
 
-# Wallpaper
-exec bash ~/.config/i3/scripts/set_wallpaper.sh
-
 #Theme
 set $bgcolor #2e3440
 set $ibgcolor #3b4252
@@ -278,3 +287,6 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 # Compositor
 # exec_always picom -f
 exec_always --no-startup-id pkill picom; picom --no-use-damage
+
+# Wallpaper
+exec_always ~/.config/i3/scripts/set_wallpaper.sh

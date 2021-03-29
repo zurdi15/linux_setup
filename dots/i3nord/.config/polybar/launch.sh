@@ -7,6 +7,11 @@ killall -q polybar
 
 # Launch bar1 and bar2
 #tee -a /tmp/mainbar.log
-polybar mainbar -r >>/tmp/mainbar.log 2>&1 & disown && echo "Main bar launched"
-#polybar appsbar -r >>/tmp/appsbar.log 2>&1 & disown && echo "Apps bar launched"
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload mainbar -r >>/tmp/mainbar.log 2>&1 & disown && echo "Main bar launched"
+  done
+else
+  polybar --reload mainbar -r >>/tmp/mainbar.log 2>&1 & disown && echo "Main bar launched"
+fi
 
