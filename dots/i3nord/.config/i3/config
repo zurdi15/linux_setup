@@ -97,6 +97,8 @@ bindsym $mod+Shift+e exec "subl"
 bindsym $mod+Shift+s exec "slack"
 # start teams
 bindsym $mod+Shift+t exec "teams"
+# start discord
+bindsym $mod+Shift+c exec "discord"
 # start nautilus
 bindsym $mod+Shift+n exec "nautilus"
 
@@ -224,6 +226,8 @@ assign [class="Slack"] $ws7
 for_window [class="Slack"] focus
 assign [class="Microsoft Teams - Preview"] $ws8
 for_window [class="Microsoft Teams - Preview"] focus
+assign [class="discord"] $ws9
+for_window [class="discord"] focus
 assign [class="Org.gnome.Nautilus"] $ws9
 for_window [class="Org.gnome.Nautilus"] focus
 
