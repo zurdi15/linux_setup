@@ -130,5 +130,10 @@ echo -e """\n
 	 - #2E3440,#3B4252,#88C0D0,#2E3440,#3B4252,#D8DEE9,#A3BE8C,#81A1C1,#3B4252,#D8DEE9
 """
 
+echo -e """\n
+	Change your audio devices to swap them from terminal in .bas_aliases.
+	Check your sink names with: pacmd list-sinks
+"""
+
 echo -e "\e[0;49;92mDone!\e[0;49;0m"
 
