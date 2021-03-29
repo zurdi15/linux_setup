@@ -75,7 +75,7 @@ content = ""
 content-font=4
 content-foreground=${colors.frost_4}
 content-padding=0
-click-left= "bash ~/.config/polybar/scripts/launcher.sh"
+click-left = "bash ~/.config/polybar/scripts/launcher.sh"
 
 [module/menu-places]
 type = custom/menu
@@ -293,9 +293,9 @@ label-volume-background = ${colors.polar_night_4}
 label-muted = %{T3}   %{T-}
 label-muted-foreground = ${colors.snow_storm_3}
 label-muted-background = ${colors.polar_night_4}
-ramp-volume-0 = %{T3}  %{T-}
-ramp-volume-1 = %{T3}  %{T-}
-ramp-volume-2 = %{T3}  %{T-}
+ramp-volume-0 = %{T3} 奄 %{T-}
+ramp-volume-1 = %{T3} 奔 %{T-}
+ramp-volume-2 = %{T3} 墳 %{T-}
 ramp-volume-0-background = ${colors.polar_night_4}
 ramp-volume-1-background = ${colors.polar_night_4}
 ramp-volume-2-background = ${colors.polar_night_4}
