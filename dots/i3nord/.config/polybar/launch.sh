@@ -9,9 +9,11 @@ killall -q polybar
 #tee -a /tmp/mainbar.log
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload mainbar -r >>/tmp/mainbar.log 2>&1 & disown && echo "Main bar launched"
+    MONITOR=$m polybar --reload topbar -r >>/tmp/topbar.log & disown && echo "Top bar launched"
+    MONITOR=$m polybar --reload botbar -r >>/tmp/botbar.log & disown && echo "Bot bar launched"
   done
 else
-  polybar --reload mainbar -r >>/tmp/mainbar.log 2>&1 & disown && echo "Main bar launched"
+  polybar --reload mainbar -r >>/tmp/mainbar.log & disown && echo "Top bar launched"
+  polybar --reload botbar -r >>/tmp/botbar.log & disown && echo "Bot bar launched"
 fi
 

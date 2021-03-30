@@ -36,7 +36,7 @@ aurora_3 = #ebcb8b
 aurora_4 = #a3be8c
 aurora_5 = #b48ead
 
-[bar/mainbar]
+[bar/topbar]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 23
@@ -57,9 +57,9 @@ font-0 = "JetBrainsMono Nerd Font:size=9;2"
 font-1 = "JetBrainsMono Nerd Font:size=11;3"
 font-2 = "JetBrainsMono Nerd Font:size=13;3"
 font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
-modules-left = menu-places i3 xwindow
-modules-center = 
-modules-right = spotify spotify-prev spotify-play-pause spotify-next update cpu memory filesystem xkeyboard battery pulseaudio date
+modules-left = menu-places
+modules-center = i3 
+modules-right = update battery pulseaudio date
 wm-restack = i3
 override-redirect = true
 scroll-up = i3wm-wsnext
@@ -68,6 +68,37 @@ cursor-click = pointer
 tray-position = right
 tray-padding = 5
 tray-background = ${colors.polar_night_4}
+enable-ipc = true
+
+[bar/botbar]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 22
+offset-x = 0%
+offset-y = 98%
+radius = 0.0
+fixed-center = true
+background = ${colors.polar_night_1}
+foreground = ${colors.snow_storm_3}
+line-size = 1
+line-color = ${colors.aurora_1}
+border-size = 0
+padding-left = 2
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+font-0 = "JetBrainsMono Nerd Font:size=9;2"
+font-1 = "JetBrainsMono Nerd Font:size=11;3"
+font-2 = "JetBrainsMono Nerd Font:size=13;3"
+font-3 = "JetBrainsMono Nerd Font:size=14;3.8"
+modules-left = spotify spotify-prev spotify-play-pause spotify-next
+modules-center = xwindow
+modules-right = cpu memory filesystem xkeyboard
+wm-restack = i3
+override-redirect = true
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+cursor-click = pointer
 enable-ipc = true
 
 [module/launcher]
@@ -157,7 +188,7 @@ label-background = ${colors.polar_night_2}
 type = internal/cpu
 interval = 2
 format = <label>
-label = "  %{T2}﬙ %{T-} %percentage:%%  "
+label = "  %{T2}﬙ %{T-}%percentage:%% "
 label-background = ${colors.polar_night_4}
 
 [module/memory]
@@ -165,14 +196,14 @@ type = internal/memory
 interval = 2
 format = <label>
 format-prefix-foreground = ${colors.snow_storm_3}
-label = "   %percentage_used:2%%  "
+label = " %percentage_used:2%% "
 label-background = ${colors.polar_night_4}
 
 [module/filesystem]
 type = internal/fs
 interval = 25
 mount-0 = /
-label-mounted = "  %{T2} %{T-} %percentage_used%%  "
+label-mounted = "%{T2} %{T-}%percentage_used%%  "
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.snow_storm_3}
 label-mounted-background = ${colors.polar_night_4}
@@ -307,13 +338,14 @@ label-muted-background = ${colors.polar_night_4}
 type = custom/script
 tail = true
 ; prefix symbol is shown before the text
+;format-prefix = "阮 "
 format = <label>
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
-label = "阮  %output:0:15%"
+label = "阮    %output:0:15%"
 
 [module/spotify-prev]
 type = custom/script
-exec = echo " 玲"
+exec = echo "    玲"
 format = <label>
 click-left = playerctl previous spotify
 exec-if = ps -U root -u root -N | grep -ve scroll_spotify | grep -ve get_spotify | grep spotify
@@ -322,7 +354,7 @@ exec-if = ps -U root -u root -N | grep -ve scroll_spotify | grep -ve get_spotify
 type = custom/ipc
 hook-0 = echo " "
 hook-1 = echo " 契"
-hook-2 = echo ""
+hook-2 = echo " "
 initial = 3
 click-left = playerctl play-pause spotify
 
