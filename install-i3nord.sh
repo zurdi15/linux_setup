@@ -2,11 +2,15 @@
 
 # PPA for i3-gaps
 sudo add-apt-repository -y ppa:regolith-linux/stable
+# PPS for spotify
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
 sudo apt-get update
 
 # Packages
 echo "Installing packages"
-sudo apt-get install build-essential curl checkinstall neovim ranger pavucontrol polybar i3-gaps i3lock-fancy picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
+sudo apt-get install build-essential curl checkinstall neovim ranger pavucontrol polybar i3-gaps i3lock-fancy spotify-client picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
 sudo apt-get autoremove -y
 sudo gem install colorls
 echo "Installing packages: Done!"
@@ -18,6 +22,21 @@ autoreconf -i; ./configure;
 make; sudo checkinstall --pkgname=i3lock-color --pkgversion=1 -y;
 cd .. && sudo rm -r i3lock-color;
 echo "Installing i3lock-fancy dependencies: Done!"
+
+## Spotify
+echo "Installing Spotify"
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo chmod a+wr /usr/share/spotify
+sudo chmod a+wr /usr/share/spotify/Apps -R
+spotify &
+/home/$USER/spicetify-cli/spicetify backup apply
+echo "Installing Spotify: Done!"
+
+## Spicetify
+echo "Installing spicetify"
+curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
+echo "Installing spicetify: Done!"
 
 # SDKMAN
 curl -s "https://get.sdkman.io" | bash

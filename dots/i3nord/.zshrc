@@ -138,6 +138,9 @@ activate() {
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
+export SPICETIFY_INSTALL="/home/$USER/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/$USER/.sdkman"
 [[ -s "/home/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/home/$USER/.sdkman/bin/sdkman-init.sh"
