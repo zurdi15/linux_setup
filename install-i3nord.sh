@@ -10,7 +10,7 @@ sudo apt-get update
 
 # Packages
 echo "Installing packages"
-sudo apt-get install build-essential curl checkinstall neovim ranger pavucontrol polybar i3-gaps i3lock-fancy spotify-client playerctl picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
+sudo apt-get install build-essential curl checkinstall neovim ranger dunst pavucontrol polybar i3-gaps i3lock-fancy spotify-client playerctl picom firefox rofi nautilus nodejs nitrogen tilix zsh ruby ruby-dev bc imagemagick libjpeg-turbo8-dev libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev feh libev-dev -y
 sudo apt-get autoremove -y
 sudo gem install colorls
 echo "Installing packages: Done!"
